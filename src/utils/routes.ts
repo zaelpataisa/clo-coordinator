@@ -1,6 +1,5 @@
 export const ROUTES = {
   INDEX: '/',
-  LOGIN: (slug: string) => '/login/${user}',
   HOME: '/home',
   PEDIDOS: '/pedidos',
   FACTURACION: '/facturacion',

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserra3t/Montserrat-VariableFont_wght.ttf') format('ttf');
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto_Condensed-Black.ttf') format('ttf');
 }
 @font-face {
   font-family: 'Rubik';
@@ -34,13 +34,13 @@
 
 * {
   font-family: 'Rubik', sans-serif;
-  user-select: none;
+  /* user-select: none; */
 }
 body {
   background: var(--colors-07);
 }
-.font-mFont {
-  font-family: 'Montserrat', sans-serif;
+.font-roFont {
+  font-family: 'Roboto', sans-serif;
 }
 .font-rFont {
   font-family: 'Rubik', sans-serif;

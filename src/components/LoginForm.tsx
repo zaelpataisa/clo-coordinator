@@ -1,72 +1,27 @@
+// src/components/LoginForm.tsx
 import React, { useState } from 'react';
 import type { FormEvent } from 'react';
 import { ROUTES } from 'src/utils/routes';
-
-interface ApiResponse {
-  status: number;
-  description: string;
-  time: string;
-  message: string;
-  company: string;
-  data: {
-    username: string;
-    nombre: string;
-    vendedor: string;
-    desactivo: number;
-    sesion: number;
-    correlativo: number | null;
-    correlativoreclamo: number | null;
-    correlativoprecobranza: number | null;
-    cierre_sesion: number;
-  };
-}
+import { loginUser } from '../utils/AuthService';
 
 const LoginForm = () => {
   const [user, setUser] = useState<string>('');
   const [pass, setPass] = useState<string>('');
   const [message, setMessage] = useState<string>('');
-  // const [userData, setUserData] = useState<ApiResponse['data'] | null>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
     const data = { user, pass };
+    setMessage('Iniciando sesión...');
 
-    try {
-      localStorage.clear();
-      const response = await fetch('https://api.cloccidental.com/api/user/login', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+    const success = await loginUser(data);
 
-      if(response.ok){
-        const responseData = await response.json();
-
-        if(responseData.data == null){
-          setMessage(`Error: Credenciales incorrectas.`);
-          localStorage.clear();
-          return;
-        }
-
-        localStorage.setItem('authToken_username', responseData.data.username);
-        localStorage.setItem('authToken_nombre', responseData.data.nombre);
-        localStorage.setItem('authToken_vendedor', responseData.data.vendedor);
-        localStorage.setItem('authToken_cierre_sesion', responseData.data.cierre_sesion);
-        // setUserData(responseData.data);
-        setMessage('¡Inicio de sesión exitoso!');
-        window.location.href = ROUTES.HOME;
-
-      } else{
-        const errorData = await response.json();
-        // setUserData(null); 
-        setMessage(`Error: ${errorData.message || 'Credenciales incorrectas. '}`);
-        localStorage.clear();
-      }
-    } catch (error) {
-      setMessage("Hubo un error de conexión")
-      console.log(`Hubo un error de conexión: ${error}`)
-      // setUserData(null);
+    if (success) {
+      setMessage('¡Inicio de sesión exitoso!');
+      window.location.href = ROUTES.HOME;
+    } else {
+      setMessage('Error: Credenciales incorrectas o error de conexión.');
     }
   }
 
@@ -113,14 +68,6 @@ const LoginForm = () => {
             {message}
           </p>
         )}
-        {/* {userData && (
-          <div className="mt-2 text-center text-gray-600">
-            <p className="font-bold">Datos del usuario:</p>
-            <p>Usuario: {userData.username}</p>
-            <p>Nombre: {userData.nombre}</p>
-            <p>Vendedor: {userData.vendedor}</p>
-          </div>
-        )} */}
       </div>
     </>
   );

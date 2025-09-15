@@ -11,15 +11,15 @@ import AuthValidator from '../components/AuthValidator';
       href="#" 
       id="logout-button"
     >
-    <AuthValidator client:load />
       Logout
     </a>
+    <AuthValidator client:load />
 	</main>
 </Layout>
 
 <script>
   import { AuthLogout } from '../utils/AuthLogout';
-  
+
   const logoutButton = document.getElementById('logout-button');
 
   if (logoutButton) {
