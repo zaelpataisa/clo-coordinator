@@ -1,6 +1,7 @@
 ---
 import { ROUTES } from "src/utils/routes";
 import Layout from "../layouts/Layout.astro";
+import LoginForm from "src/components/LoginForm";
 
 
 ---
@@ -16,25 +17,8 @@ import Layout from "../layouts/Layout.astro";
 						class="w-[10rem] auto"
 					>
 				</div>
-				<form 
-					action="#" 
-					method="POST"
-					class="w-full flex flex-col items-center h-auto space-y-4 p-2"
-				>
-					<input type="text" name="codigo" class="w-full max-w-[80%] text-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5" placeholder="Usuario" autocomplete="off" minlength={5} maxlength={20} required />
-					<input type="password" name="password" class="w-full max-w-[80%] text-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5" placeholder="Contraseña" minlength={5} maxlength={20} required />
-
-					<a href="#" class="font-rFont text-[0.75rem] hover:underline text-[var(--colors-07)]">
-						Cambiar contraseña
-					</a>
-
-					{/* <button type="submit" className="w-auto h-auto px-5 py-2 bg-blue-700 font-rFont text-[var(--colors-07)] rounded-xl text-[1rem]">
-							Ingresar
-					</button> */}
-					<a href={ROUTES.HOME} class="w-auto h-auto px-5 py-2 bg-blue-700 font-rFont text-[var(--colors-07)] rounded-xl text-[1rem]">
-						Ingresar
-					</a>
-				</form>
+				
+				<LoginForm client:load />
 			</div>
 		</div>
 	</main>

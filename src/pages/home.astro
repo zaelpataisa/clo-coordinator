@@ -1,12 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-
+import AuthValidator from '../components/AuthValidator';
 ---
 
 <Layout title="¡Bienvenido! - CLO">
 	<main>
-		test
-		<a href="/">Logout</a>
+    {/* ... Tu componente AuthDisplay, si lo necesitas */}
+    <br>
+		<a 
+      href="#" 
+      id="logout-button"
+    >
+    <AuthValidator client:load />
+      Logout
+    </a>
 	</main>
 </Layout>
+
+<script>
+  import { AuthLogout } from '../utils/AuthLogout';
+  
+  const logoutButton = document.getElementById('logout-button');
+
+  if (logoutButton) {
+    logoutButton.addEventListener('click', (e) => {
+      e.preventDefault(); 
+      AuthLogout(); 
+    });
+  }
+</script>
