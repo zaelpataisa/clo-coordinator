@@ -26,9 +26,11 @@ interface ApiResponse {
 }
 
 export const loginUser = async (data: LoginData): Promise<boolean> => {
+  const API_LOGIN = import.meta.env.PUBLIC_API_LOGIN;
+
   try {
     localStorage.clear();
-    const response = await fetch('https://api.cloccidental.com/api/user/login', {
+    const response = await fetch(`${API_LOGIN}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
