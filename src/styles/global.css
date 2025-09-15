@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserra3t/Montserrat-VariableFont_wght.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Regular.ttf') format('ttf');
+}
+
+:root {
+  --colors-01: #00072d;
+  --colors-02: #001c55;
+  --colors-03: #0a2472;
+  /* --colors-03_25: #0a24723f;
+  --colors-03_50: #0a24727f;
+  --colors-03_75: #0a2472bf; */
+  --colors-04: #9b9b9b;
+  /* --colors-04_10: #9b9b9b10;
+  --colors-04_50: #9b9b9b50; */
+  --colors-05: #c20000;
+  /* --colors-05_25: #c200003f;
+  --colors-05_50: #c200007f;
+  --colors-05_75: #c20000bf; */
+
+  --colors-06: #131313;
+  --colors-07: #ffffff;
+  --colors-08: #6b6a6a;
+
+  --gradient-wallpaper: 90deg,rgba(37, 46, 120, 1) 0%, rgba(35, 45, 86, 1) 48%;
+  --gradient-wallpaper-o: 90deg,rgba(37, 46, 120, 0.9) 0%, rgba(35, 45, 86, 0.9) 48%;
+}
+
+* {
+  font-family: 'Rubik', sans-serif;
+  user-select: none;
+}
+body {
+  background: var(--colors-07);
+}
+.font-mFont {
+  font-family: 'Montserrat', sans-serif;
+}
+.font-rFont {
+  font-family: 'Rubik', sans-serif;
+}
