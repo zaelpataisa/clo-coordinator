@@ -1,4 +1,3 @@
-// src/components/LoginForm.tsx
 import React, { useState } from 'react';
 import type { FormEvent } from 'react';
 import { ROUTES } from 'src/utils/routes';

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { ROUTES } from 'src/utils/routes';
 
 interface UserData {
-    username: string;
-    nombre: string;
-    vendedor: string;
-    cierre_sesion: string;
+  username: string;
+  nombre: string;
+  vendedor: string;
+  cierre_sesion: string;
 }
 
 const AuthDisplay = () => {
@@ -35,14 +35,14 @@ useEffect(() => {
     return <p>Validando autenticación...</p>;
   }
 
-  return (
-    <div>
-      <p>Username: {userData.username}</p>
-      <p>Nombre: {userData.nombre}</p>
-      <p>Vendedor: {userData.vendedor}</p>
-      <p>Cierre de Sesión: {userData.cierre_sesion}</p>
-    </div>
-  );
+  // return (
+  //   <div>
+  //     <p>Username: {userData.username}</p>
+  //     <p>Nombre: {userData.nombre}</p>
+  //     <p>Vendedor: {userData.vendedor}</p>
+  //     <p>Cierre de Sesión: {userData.cierre_sesion}</p>
+  //   </div>
+  // );
 };
 
 export default AuthDisplay;

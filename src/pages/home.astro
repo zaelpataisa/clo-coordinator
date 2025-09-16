@@ -1,15 +1,40 @@
 ---
+import Topbar from "src/layouts/Topbar.astro";
 import Layout from "../layouts/Layout.astro";
-import AuthValidator from '../components/AuthValidator';
-import Logout from "src/components/Logout.tsx";
 import Header from "src/layouts/Header.astro";
+import Componente_c1_1 from "./home/c1_2";
+
+const containers_colors = "#fbfbfb";
+const containers = "flex";
+const subcontainers = `flex flex-col m-2 p-2 w-[calc(100%-1rem)] max-w-full border shadow-md rounded-md bg-[${containers_colors}]`;
+const containers_titles = "font-rFont font-bold text-[var(--colors-03)] text-[1.25rem]";
 
 ---
 
-<Layout title="¡Bienvenido! - CLO">
-    <Header />
-	<main>
-    <!-- <Logout client:load />
-    <AuthValidator client:load /> -->
-	</main>
+<Layout title="Inicio - CLO">
+    <!-- Header -->
+  <Header />
+  <div class="flex flex-col">
+    <!-- Topbar -->
+    <div>
+      <Topbar />
+      <div class="hr-custom"></div>
+    </div>
+
+    <!-- Content -->
+    <div id="content-index" class="w-full">
+      <div id="container-ventas">
+        <div class="w-full flex flex-wrap">
+          <!-- Subcontainer 1.1: Anvace de la meta -->
+           <div class=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <Componente_c1_1 client:load /> -->
 </Layout>
+
+<!-- 
+  c1_2: http://192.168.0.40:8000/api/manager/stadistic/g99
+
+-->

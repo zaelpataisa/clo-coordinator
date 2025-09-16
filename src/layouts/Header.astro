@@ -1,7 +1,9 @@
 ---
 import IconSelect from "src/components/Icons"
+import AuthValidator from '../hooks/AuthValidator';
 ---
 
+<AuthValidator client:load />
 <header class="bg-[linear-gradient(var(--gradient-wallpaper))] text-[var(--colors-07)] shadow-[var(--bst)] overflow-hidden flex flex-col md:flex-row">
   <!-- Banner image -->
   <div class="flex h-auto py-6 px-8 justify-center md:justify-start items-center w-full md:w-1/2">
@@ -21,8 +23,8 @@ import IconSelect from "src/components/Icons"
           class="p-2 h-14 aspect-square bg-[var(--colors-07)] rounded-md"
         >
         <div class='flex flex-col'>
-          <p class='font-bold text-[1.15rem] text-[var(--colors-07)]'>
-            Usuario
+          <p class='font-bold text-[1.15rem] text-[var(--colors-07)]' id="header-user">
+            <!-- Nombre -->
           </p>
         </div>
         <div class="text-[2rem] text-[var(--colors-07)]">
@@ -59,15 +61,23 @@ import IconSelect from "src/components/Icons"
 <script>
   import { setupDropdown } from '../utils/dropdownHeader.ts';
   import { AuthLogout } from '../utils/AuthLogout';
+  import { getLocalStorageData } from '../utils/GetLocalStorageData'
 
+  // Lógica Dropdown
   setupDropdown('dropdown-button', 'dropdown-menu');
-
   const logoutButton = document.getElementById('logout-button');
 
+  // Lógica logout
   if (logoutButton) {
     logoutButton.addEventListener('click', (e) => {
       e.preventDefault(); 
       AuthLogout(); 
     });
+  }
+
+  // Lógica LocalStorage username
+  const headerUser = document.getElementById('header-user');
+  if (headerUser) {
+    headerUser.textContent = getLocalStorageData('authToken_nombre');
   }
 </script>
