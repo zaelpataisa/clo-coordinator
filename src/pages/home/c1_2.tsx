@@ -1,11 +1,12 @@
 import ChartBar_02 from "src/components/ChartBar_02";
-import FetchData from "src/hooks/FetchData";
 import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
 
 interface ApiResponse {
   id: string;
-  xAxisData: { data: string[] }[];
+  xAxisData: { 
+    data: string[] 
+  }[];
   seriesData: {
     data: number[];
     label?: string;
@@ -14,12 +15,12 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_c1_1 = () => {
+const Componente_c1_2 = () => {
   const url = "http://192.168.0.40:8000/api/manager/stadistic/"+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
-    return <p></p>;
+    return;
   }
 
   if (error) {
@@ -41,4 +42,4 @@ const Componente_c1_1 = () => {
   );
 }
 
-export default Componente_c1_1;
+export default Componente_c1_2;

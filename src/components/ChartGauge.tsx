@@ -1,13 +1,13 @@
 import GaugeComponent from 'react-gauge-component';
 
 interface DataProps {
-    chartData: {
-        GaugeWidth: string;
-        minValue: number;
-        value: number;
-        maxValue: number;
-        colors: string;
-    }
+  chartData: {
+    GaugeWidth: string;
+    minValue: number;
+    value: number;
+    maxValue: number;
+    colors: string;
+  }
 }
 
 const ChartGauge = ({ chartData }: DataProps) => {
@@ -31,13 +31,13 @@ const ChartGauge = ({ chartData }: DataProps) => {
           maxValue={ chartData.maxValue }
           labels={{
             valueLabel: {
-              formatTextValue: value => value + '$',
-              style: {
-                fontSize: "35px",
-                fill: chartData.colors,
-                textShadow: 'none',
-                fontWeight: 'bold'
-              }
+                formatTextValue: value => value + '$',
+                style: {
+                    fontSize: "35px",
+                    fill: chartData.colors,
+                    textShadow: 'none',
+                    fontWeight: 'bold'
+                }
             }
           }}
         />
