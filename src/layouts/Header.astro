@@ -1,0 +1,73 @@
+---
+import IconSelect from "src/components/Icons"
+---
+
+<header class="bg-[linear-gradient(var(--gradient-wallpaper))] text-[var(--colors-07)] shadow-[var(--bst)] overflow-hidden flex flex-col md:flex-row">
+  <!-- Banner image -->
+  <div class="flex h-auto py-6 px-8 justify-center md:justify-start items-center w-full md:w-1/2">
+    <img
+      src={'/logo_header.webp'} alt="Banner header"
+      class="w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/6 2xl:w-1/8 2xl:m-4 h-auto"
+    />
+  </div>
+
+  <!-- Header options -->
+  <div class="flex h-auto py-6 px-8 flex-col justify-center items-center md:items-end w-full md:w-1/2">
+    <!-- Button -->
+    <button id="dropdown-button" class="cursor-pointer">
+      <div class="flex flex-row justify-center items-center h-full space-x-4">
+        <img 
+          src="/user_default.webp" alt=""
+          class="p-2 h-14 aspect-square bg-[var(--colors-07)] rounded-md"
+        >
+        <div class='flex flex-col'>
+          <p class='font-bold text-[1.15rem] text-[var(--colors-07)]'>
+            Usuario
+          </p>
+        </div>
+        <div class="text-[2rem] text-[var(--colors-07)]">
+          <IconSelect iconCode={'IoIosArrowDown'} />
+        </div>
+      </div>
+    </button>
+
+    <!-- Dropdown -->
+     <div id="dropdown-menu" class="absolute translate-y-25 -translate-x-3 z-10 hidden bg-[var(--colors-07)] divide-y divide-[var(--colors-04)]/50 rounded-md shadow-xl text-[1rem]">
+      <ul class="py-2 text-[var(--colors-06)]" aria-labelledby="dropdown-button">
+        <li>
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-[var(--colors-04)]/30">
+            <IconSelect iconCode={'FaUser'} />
+            <span class="ml-1">Perfil</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center px-4 py-2 hover:bg-[var(--colors-04)]/30">
+            <IconSelect iconCode={'IoMdSettings'} />
+            <span class="ml-1">Configuraciones</span>
+          </a>
+        </li>
+      </ul>
+      <a href="#" id="logout-button" class="flex items-center px-4 py-2 text-[var(--colors-06)] hover:bg-[var(--colors-04)]/30">
+        <IconSelect iconCode={'MdLogout'} />
+        <span class="ml-1">Cerrar sesión</span>
+      </a>
+  </div>
+  </div>
+</header>
+
+
+<script>
+  import { setupDropdown } from '../utils/dropdownHeader.ts';
+  import { AuthLogout } from '../utils/AuthLogout';
+
+  setupDropdown('dropdown-button', 'dropdown-menu');
+
+  const logoutButton = document.getElementById('logout-button');
+
+  if (logoutButton) {
+    logoutButton.addEventListener('click', (e) => {
+      e.preventDefault(); 
+      AuthLogout(); 
+    });
+  }
+</script>

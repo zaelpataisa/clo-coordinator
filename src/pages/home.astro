@@ -2,12 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import AuthValidator from '../components/AuthValidator';
 import Logout from "src/components/Logout.tsx";
+import Header from "src/layouts/Header.astro";
 
 ---
 
 <Layout title="¡Bienvenido! - CLO">
+    <Header />
 	<main>
-    <Logout />
-    <AuthValidator client:load />
+    <!-- <Logout client:load />
+    <AuthValidator client:load /> -->
 	</main>
 </Layout>
