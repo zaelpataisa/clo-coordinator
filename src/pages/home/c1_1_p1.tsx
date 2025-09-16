@@ -12,7 +12,9 @@ interface ApiResponse {
 }
 
 const Componente_c1_1_p1 = () => {
-  const url = "http://192.168.0.40:8000/api/manager/stadistic/sum/"+getLocalStorageData('authToken_vendedor');
+  const DATA_API = import.meta.env.PUBLIC_COORD_C1_1;
+  
+  const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
@@ -36,17 +38,6 @@ const Componente_c1_1_p1 = () => {
           }}
         />
       )}
-      
-      {/* <div className="w-full gird grid-cols-2 gap-4 h-full">
-        <div className="flex flex-col justify-center items-center w-full">
-          <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
-            {data?.value}
-          </p>
-          <p className='font-rFont font-bold text-[1rem] text-[var(--colors-03)]'>
-            {data?.porcentaje}%
-          </p>
-        </div>
-      </div> */}
     </>
   );
 }

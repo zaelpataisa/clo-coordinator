@@ -43,19 +43,21 @@ const containers_width = {
       <div id="container-ventas">
         <div class="w-full flex flex-wrap">
           <!-- Subcontainer 1.1: Anvace de la meta -->
-            <div class={`${containers} ${containers_width['c_1-1']}`}>
-              <div class={`${subcontainers}`}>
-                <p class={`${containers_titles}`}>
-                  Avance de la meta (ventas)
-                </p>
-                <div class="flex justify-center items-center">
-                  <Componente_c1_1_p1 client:load />
-                </div>
-                <div class="w-full grid grid-cols-2 gap-4 h-full">
-                  <Componente_c1_1_p2 client:load />
-                </div>
+          <div class={`${containers} ${containers_width['c_1-1']}`}>
+            <div class={`${subcontainers}`}>
+              <p class={`${containers_titles}`}>
+                Avance de la meta (ventas)
+              </p>
+              <div class="flex justify-center items-center">
+                <Componente_c1_1_p1 client:load />
+              </div>
+              <div class="w-full grid grid-cols-2 gap-4 h-full">
+                <Componente_c1_1_p2 client:load />
               </div>
             </div>
+          </div>
+
+          <!-- Subcontainer 1.2: Meta de ventas general -->
         </div>
       </div>
     </div>
@@ -63,7 +65,7 @@ const containers_width = {
 </Layout>
 
 <!-- 
-  c1_!: http://192.168.0.40:8000/api/manager/stadistic/sum/g01
-  c1_2: http://192.168.0.40:8000/api/manager/stadistic/g99
+  c1_1: http://192.168.0.40:8000/api/manager/stadistic/sum/
+  c1_2: http://192.168.0.40:8000/api/manager/stadistic/
 
 -->

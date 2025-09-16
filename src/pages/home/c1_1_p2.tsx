@@ -12,7 +12,9 @@ interface ApiResponse {
 }
 
 const Componente_c1_1_p2 = () => {
-  const url = "http://192.168.0.40:8000/api/manager/stadistic/sum/"+getLocalStorageData('authToken_vendedor');
+  const DATA_API = import.meta.env.PUBLIC_COORD_C1_1;
+    
+  const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
