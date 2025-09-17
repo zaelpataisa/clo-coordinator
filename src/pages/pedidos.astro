@@ -1,0 +1,58 @@
+---
+import Topbar from "src/layouts/Topbar.astro";
+import Layout from "../layouts/Layout.astro";
+import Header from "src/layouts/Header.astro";
+import { containers, subcontainers, containers_titles, c_w_pedidos } from '../utils/Containers';
+
+import Componente_dttl_pdds_gnrl from './pedidos/dtll_pdds_gnrl'
+import Componente_graphic_pdds_gnrl from './pedidos/graphic_pdds_gnrl'
+---
+
+
+<Layout title="Pedidos - CLO">
+  <!-- Header -->
+   <Header />
+   <div class="flex flex-col">
+    <!-- Topbar -->
+     <div>
+      <Topbar />
+      <div class="hr-custom"></div>
+     </div>
+
+     <!-- Content -->
+      <div id="content-index" class="w-full">
+        <!-- Container #1: Pedidos -->
+         <div id="container-ventas">
+          <div class="w-full flex flex-wrap">
+            <!-- Subcontainer 1.1: Detalle de pedidos generales -->
+            <div class={`${containers} ${c_w_pedidos['c_1-1']}`}>
+              <div class={`${subcontainers}`}>
+                <p class={`${containers_titles}`}>
+                  Detalle de pedidos generales
+                </p>
+                <div class="flex justify-center items-center h-[40dvh] w-auto">
+                  <Componente_dttl_pdds_gnrl client:load />
+                </div>
+              </div>
+            </div>
+
+            <!-- Subcontainer 1.2: Pedidos realizados por vendedor -->
+            <div class={`${containers} ${c_w_pedidos['c_1-1']}`}>
+              <div class={`${subcontainers}`}>
+                <p class={`${containers_titles}`}>
+                  Pedidos realizados por vendedor
+                </p>
+                <div class="flex justify-center items-center h-[40dvh] w-auto">
+                  <Componente_graphic_pdds_gnrl client:load/>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+      </div>
+
+
+
+   </div>
+
+</Layout>

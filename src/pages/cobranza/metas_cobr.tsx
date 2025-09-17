@@ -17,8 +17,8 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_metas_cobr_gnrl = () => {
-  const DATA_API = import.meta.env.PUBLIC_COORD_META_COBR_GNRL;
+const Componente_metas_cobr = () => {
+  const DATA_API = import.meta.env.PUBLIC_COORD_META_COBR;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
@@ -39,7 +39,7 @@ const Componente_metas_cobr_gnrl = () => {
         {data && (
           <ChartBar_02
             chartData={data}
-            label={"Ventas"}
+            label={"Cobranza por día"}
             yAxisConfig={{opacity: 1, disableLine: false, disableTicks: false}}
           />
         )}
@@ -48,4 +48,4 @@ const Componente_metas_cobr_gnrl = () => {
   );
 }
 
-export default Componente_metas_cobr_gnrl;
+export default Componente_metas_cobr;

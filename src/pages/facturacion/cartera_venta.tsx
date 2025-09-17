@@ -2,25 +2,27 @@ import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
 import CircularProgress from '@mui/material/CircularProgress';
 
-interface ApiResponse {
-  seriesData: number[];
-}
+interface ApiResponse extends Array<number> {}
 
 const Componente_cartera_venta = () => {
-  // const DATA_API = import.meta.env.PUBLIC_COORD_GRAPHIC_VENTA;
+  const DATA_API = import.meta.env.PUBLIC_COORD_CARTERA;
 
-  // const url = DATA_API+getLocalStorageData('authToken_vendedor');
-  // const { data, isLoading, error } = useFetch<ApiResponse>(url);
+  const url = DATA_API+getLocalStorageData('authToken_vendedor');
+  const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
-  // if (isLoading) {
-  //   return (
-  //      <CircularProgress />
-  //   );
-  // }
+  if (isLoading) {
+    return (
+       <CircularProgress />
+    );
+  }
 
-  // if (error) {
-  //   return <p>Error al obtener los datos: {error}</p>;
-  // }
+  if (error) {
+    return <p>Error al obtener los datos: {error}</p>;
+  }
+  
+  if(!data){
+    return null;
+  }
 
   const data_titles = [
     'Total del clientes',
@@ -28,7 +30,6 @@ const Componente_cartera_venta = () => {
     'Clientes visitados',
     'Ventas emitidas este mes',
   ];
-  const data = [211,52,3553,234];
 
   return (
     <>
@@ -42,7 +43,7 @@ const Componente_cartera_venta = () => {
               {item}
             </p>
             <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
-              {data[index]} {/* <--- Cambio aquí */}
+              {data[index]}
             </p>
           </div>
         ))}

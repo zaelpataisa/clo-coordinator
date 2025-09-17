@@ -32,7 +32,7 @@ useEffect(() => {
 
   }, []); 
   if (!userData) {
-    return <p>Validando autenticación...</p>;
+    return <p>{/* Validando autenticación... */}</p>;
   }
 
   // return (

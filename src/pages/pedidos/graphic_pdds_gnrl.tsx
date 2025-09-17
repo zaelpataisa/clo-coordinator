@@ -6,18 +6,18 @@ import ChartBar_02 from "src/components/ChartBar_02";
 
 interface ApiResponse {
   id: string;
-  xAxisData: { 
-    data: string[] 
+  xAxisData: {
+    data: string[];
   }[];
   seriesData: {
     data: number[];
-    label?: string;
-    color?: string;
-    hidden?: boolean;
+    label: string;
+    color: string;
+    hidden: boolean;
   }[];
 }
 
-const Componente_metas_venta_gnrl = () => {
+const Componente_graphic_pdds_gnrl = () => {
   const DATA_API = import.meta.env.PUBLIC_COORD_META_VENTA_GNRL;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
@@ -39,7 +39,7 @@ const Componente_metas_venta_gnrl = () => {
       {data && (
         <ChartBar_02
           chartData={data}
-          label={"Ventas"}
+          label={"Cantidad"}
           yAxisConfig={{opacity: 1, disableLine: false, disableTicks: false}}
         />
       )}
@@ -47,4 +47,4 @@ const Componente_metas_venta_gnrl = () => {
   );
 }
 
-export default Componente_metas_venta_gnrl;
+export default Componente_graphic_pdds_gnrl;
