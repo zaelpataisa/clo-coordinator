@@ -2,7 +2,6 @@ import GaugeComponent from 'react-gauge-component';
 
 interface DataProps {
   chartData: {
-    GaugeWidth: string;
     minValue: number;
     value: number;
     maxValue: number;
@@ -13,7 +12,7 @@ interface DataProps {
 const ChartGauge = ({ chartData }: DataProps) => {
   return (
     <>
-      <div className={chartData.GaugeWidth}>
+      <div className={'w-[75%]'}>
         <GaugeComponent
           type="semicircle"
           arc={{

@@ -15,8 +15,10 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_c1_2 = () => {
-  const url = "http://192.168.0.40:8000/api/manager/stadistic/"+getLocalStorageData('authToken_vendedor');
+const Componente_metas_venta_gnrl = () => {
+  const DATA_API = import.meta.env.PUBLIC_COORD_META_VENTA_GNRL;
+
+  const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
@@ -42,4 +44,4 @@ const Componente_c1_2 = () => {
   );
 }
 
-export default Componente_c1_2;
+export default Componente_metas_venta_gnrl;

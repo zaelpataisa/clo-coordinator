@@ -13,8 +13,8 @@
   --colors-01: #00072d;
   --colors-02: #001c55;
   --colors-03: #0a2472;
-  /* --colors-03_25: #0a24723f;
   --colors-03_50: #0a24727f;
+  /* --colors-03_25: #0a24723f;
   --colors-03_75: #0a2472bf; */
   --colors-04: #9b9b9b;
   /* --colors-04_10: #9b9b9b10;
@@ -30,6 +30,9 @@
 
   --gradient-wallpaper: 90deg,rgba(37, 46, 120, 1) 0%, rgba(35, 45, 86, 1) 48%;
   --gradient-wallpaper-o: 90deg,rgba(37, 46, 120, 0.9) 0%, rgba(35, 45, 86, 0.9) 48%;
+  
+  --bs: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
+  --bst: 0px 0px 12.5px 1px rgba(0, 0, 0, 0.75);
 }
 
 * {
