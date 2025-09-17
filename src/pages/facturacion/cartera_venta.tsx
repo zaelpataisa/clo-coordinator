@@ -1,5 +1,6 @@
 import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
+import CircularProgress from '@mui/material/CircularProgress';
 
 interface ApiResponse {
   seriesData: number[];
@@ -12,7 +13,9 @@ const Componente_cartera_venta = () => {
   // const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   // if (isLoading) {
-  //   return;
+  //   return (
+  //      <CircularProgress />
+  //   );
   // }
 
   // if (error) {

@@ -1,6 +1,8 @@
-import ChartGauge from "src/components/ChartGauge";
 import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
+import CircularProgress from '@mui/material/CircularProgress';
+
+import ChartGauge from "src/components/ChartGauge";
 
 interface ApiResponse {
   minValue: number;
@@ -18,7 +20,9 @@ const Componente_meta_cobranza = () => {
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
-    return;
+    return (
+       <CircularProgress />
+    );
   }
 
   if (error) {

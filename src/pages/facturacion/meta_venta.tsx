@@ -1,6 +1,7 @@
 import ChartGauge from "src/components/ChartGauge";
 import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
+import CircularProgress from '@mui/material/CircularProgress'; 
 
 interface ApiResponse {
   minValue: number;
@@ -18,7 +19,9 @@ const Componente_meta_venta = () => {
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
-    return;
+    return (
+      <CircularProgress />
+    );
   }
 
   if (error) {
@@ -37,6 +40,7 @@ const Componente_meta_venta = () => {
           }}
         />
       )}
+
       <div className="w-full grid grid-cols-2 gap-4 h-full">
         <div className="flex flex-col justify-center items-center w-full">
           <div className="flex flex-col justify-center items-center w-full">

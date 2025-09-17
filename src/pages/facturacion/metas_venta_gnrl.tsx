@@ -1,6 +1,8 @@
-import ChartBar_02 from "src/components/ChartBar_02";
 import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
+import CircularProgress from '@mui/material/CircularProgress';
+
+import ChartBar_02 from "src/components/ChartBar_02";
 
 interface ApiResponse {
   id: string;
@@ -22,7 +24,10 @@ const Componente_metas_venta_gnrl = () => {
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
-    return;
+    return (
+        <CircularProgress />
+      );
+    ;
   }
 
   if (error) {

@@ -31,7 +31,10 @@ const Componente_table_days_detail = () => {
   // const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   // if (isLoading) {
-  //   return;
+  //   return (
+  //       <CircularProgress />
+  //     );
+  //   ;
   // }
 
   // if (error) {

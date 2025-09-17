@@ -1,5 +1,6 @@
 import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { Tables } from "src/components/Tables"
 
@@ -36,7 +37,9 @@ const Componente_cobranza_cxc = () => {
   // const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   // if (isLoading) {
-  //   return;
+  //   return (
+  //      <CircularProgress />
+  //   );
   // }
 
   // if (error) {

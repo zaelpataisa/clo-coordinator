@@ -1,5 +1,6 @@
 import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
+import CircularProgress from '@mui/material/CircularProgress';
 
 import ChartLine_01 from "src/components/ChartLine_01";
 
@@ -20,7 +21,9 @@ const Componente_graphic_cobr = () => {
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
-    return;
+    return (
+       <CircularProgress />
+    );
   }
 
   if (error) {

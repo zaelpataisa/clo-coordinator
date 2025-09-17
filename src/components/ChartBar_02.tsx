@@ -115,7 +115,7 @@ const ChartBar_02 = ({ chartData, label, yAxisConfig }: DataProps) => {
                     chartData.seriesData.filter(s => !s.hidden)
                     .map(s => ({ ...s, highlightScope }))
                 }
-                barLabel="value"
+                // barLabel="value"
                 slots={{
                     barLabel: BarLabel
                 }}
