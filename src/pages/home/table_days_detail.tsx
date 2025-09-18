@@ -25,7 +25,7 @@ interface ApiResponse {
 }
 
 const Componente_table_days_detail = () => {
-  // const DATA_API = import.meta.env.PUBLIC_COORD_GRAPHIC_VENTA;
+  // const DATA_API = import.meta.env.PUBLIC_COORD_DAYS_DETAIL;
 
   // const url = DATA_API+getLocalStorageData('authToken_vendedor');
   // const { data, isLoading, error } = useFetch<ApiResponse>(url);

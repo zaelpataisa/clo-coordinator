@@ -14,15 +14,15 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_graphic_cobr = () => {
-  const DATA_API = import.meta.env.PUBLIC_COORD_GRAPHIC_COBR;
+const Componente_graphic_venta = () => {
+  const DATA_API = import.meta.env.PUBLIC_COORD_GRAPHIC_VENTA;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
     return (
-       <CircularProgress />
+      <CircularProgress />
     );
   }
 
@@ -34,7 +34,7 @@ const Componente_graphic_cobr = () => {
     <>
       {data && (
         <ChartLine_01
-          label={'Cobranza'}
+          label={'Pedidos'}
           chartData={data}
           yAxisConfig={{opacity: 1, disableLine: false}}
           lineDesign={{area: true}}
@@ -44,4 +44,4 @@ const Componente_graphic_cobr = () => {
   );
 }
 
-export default Componente_graphic_cobr;
+export default Componente_graphic_venta;

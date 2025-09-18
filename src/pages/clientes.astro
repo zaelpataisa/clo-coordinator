@@ -1,0 +1,104 @@
+---
+import Topbar from "src/layouts/Topbar.astro";
+import Layout from "../layouts/Layout.astro";
+import Header from "src/layouts/Header.astro";
+import { containers, subcontainers, containers_titles, c_w_clientes } from '../utils/Containers';
+
+import Componente_clients_actives from './clientes/clients_actives'
+import Componente_clients_newest from './clientes/clients_actives'
+import Componente_table_clientes from './clientes/table_clientes'
+import Componente_graphic_fact_clientes from './clientes/graphic_fact_clientes'
+import Componente_graphic_cobr_clientes from './clientes/graphic_cobr_clientes'
+---
+
+<Layout title="Clientes - CLO">
+  <!-- Header -->
+  <Header />
+  <div class="flex flex-col">
+    <!-- Topbar -->
+    <div>
+      <Topbar />
+      <div class="hr-custom"></div>
+    </div>
+
+    <!-- Content -->
+    <div id="content" class="w-full">
+      <!-- Container #1: Estadísticas de clientes -->
+      <div id="container-historico">
+        <div class="w-full flex flex-wrap">
+          <!-- Subcontainer 1.1: Clientes activos en el mes -->
+          <div class={`${containers} ${c_w_clientes['c_1-1']}`}>
+            <div class={`${subcontainers}`}>
+              <p class={containers_titles}>
+                Clientes activos en el mes
+              </p>
+              <div class="flex justify-center items-center h-[40dvh] w-auto">
+                <Componente_clients_actives client:load />
+              </div>
+            </div>
+          </div>
+
+          <!-- Subcontainer 1.2: Clientes nuevos en el mes -->
+          <div class={`${containers} ${c_w_clientes['c_1-2']}`}>
+            <div class={`${subcontainers}`}>
+              <p class={`${containers_titles}`}>
+                Clientes nuevos en el mes
+              </p>
+              <div class="flex justify-center items-center h-[40dvh] w-auto">
+                <Componente_clients_newest client:load />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container #2: Detalle de clientes por vendedor -->
+      <div id="container-tables">
+        <div class="w-full flex flex-wrap">
+          <!-- Subcontainers 2.1: Detalle de clientes por vendedor -->
+          <div class={`${containers} ${c_w_clientes['c_2-1']}`}>
+            <div class={`${subcontainers}`}>
+              <p class={`${containers_titles}`}>
+                Detalle de clientes por vendedor
+              </p>
+              <div class="flex h-full w-full justify-center items-center">
+                <Componente_table_clientes client:load />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container #3: Históricos de clientes -->
+      <div id="container-historico">
+        <div class="w-full flex flex-wrap">
+          <!-- Subcontainer 3.1: Histórico de facturación del cliente -->
+          <div class={`${containers} ${c_w_clientes['c_3-1']}`}>
+            <div class={`${subcontainers}`}>
+              <p class={`${containers_titles}`}>
+                Histórico de pedidos por cliente
+              </p>
+              <div class="flex justify-center items-center h-[40dvh] w-auto">
+                <Componente_graphic_fact_clientes client:load />
+              </div>
+            </div>
+          </div>
+
+          <!-- Subcontainer 3.2: Histórico de cobranza del cliente -->
+          <div class={`${containers} ${c_w_clientes['c_3-2']}`}>
+            <div class={`${subcontainers}`}>
+              <p class={`${containers_titles}`}>
+                Histórico de cobranza por cliente
+              </p>
+              <div class="flex justify-center items-center h-[40dvh] w-auto">
+                <Componente_graphic_cobr_clientes client:load />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

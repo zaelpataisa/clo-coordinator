@@ -40,7 +40,7 @@ export const useFetch = <T,>(url: string, intervalSeconds: number = 0) => {
     if(intervalSeconds > 0){
       const interval = setInterval(() => {
         fetchData();
-      }, intervalSeconds * 1000);
+      }, intervalSeconds * 5000);
 
       return () => clearInterval(interval);
     }

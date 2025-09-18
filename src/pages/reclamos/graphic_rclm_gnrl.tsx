@@ -17,8 +17,8 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_graphic_pdds_gnrl = () => {
-  // const DATA_API = import.meta.env.PUBLIC_COORD_META_VENTA_GNRL;
+const Componente_graphic_rclm_gnrl = () => {
+  // const DATA_API = import.meta.env.PUBLIC_RECLAMOS_GRAPHIC_RCLM_GNRL;
 
   // const url = DATA_API+getLocalStorageData('authToken_vendedor');
   // const { data, isLoading, error } = useFetch<ApiResponse>(url);
@@ -35,36 +35,50 @@ const Componente_graphic_pdds_gnrl = () => {
   // }
 
   const data = {
-    id: 'graphic_pdds_gnrl',
+    id: 'graphic_rclm_gnrl',
     xAxisData: [
-      { data: ['Adamo', 'Mario', 'Luigi', 'Asesor3', 'Asesor4', 'Asesor5'] }
+      {
+        data: ['Adamo', 'Mario', 'Luigi', 'Asesor3', 'Asesor4', 'Asesor5'],
+      },
     ],
     seriesData: [
       {
         data: [4, 3, 5, 2, 5, 7],
-        label: 'Transito',
+        label: 'Defecto de fábrica',
         color: 'var(--colors-03)',
-        hidden: false
+        hidden: false,
       },
       {
         data: [1, 6, 3, 2, 5, 7],
-        label: 'Retenidos',
+        label: 'Garantía del proveedor',
         color: 'var(--colors-03_75)',
-        hidden: false
+        hidden: false,
       },
       {
         data: [2, 5, 6, 2, 5, 7],
-        label: 'En almacén',
-        color: 'var(--colors-03_50)',
-        hidden: false
+        label: 'Mal manejo de mercancía',
+        color: 'var(--colors-03_75)',
+        hidden: false,
       },
       {
         data: [7, 2, 4, 3, 1, 2],
-        label: 'Facturados',
+        label: 'Error de venta',
+        color: 'var(--colors-03_50)',
+        hidden: false,
+      },
+      {
+        data: [7, 2, 4, 3, 1, 2],
+        label: 'Error en catálogo del producto',
         color: 'var(--colors-03_25)',
-        hidden: false
-      }
-    ]
+        hidden: false,
+      },
+      {
+        data: [7, 2, 4, 3, 1, 2],
+        label: 'Mal despacho (faltó/sobro)',
+        color: 'var(--colors-03)',
+        hidden: false,
+      },
+    ],
   };
 
   return (
@@ -80,4 +94,4 @@ const Componente_graphic_pdds_gnrl = () => {
   );
 }
 
-export default Componente_graphic_pdds_gnrl;
+export default Componente_graphic_rclm_gnrl;

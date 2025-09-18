@@ -6,7 +6,7 @@ import ChartLine_01 from "src/components/ChartLine_01";
 
 interface ApiResponse {
   id: string;
-  xAxisData: string[];
+  xAxisData: number[];
   seriesData: {
     data: number[];
     label: string;
@@ -14,8 +14,8 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_graphic_venta = () => {
-  // const DATA_API = import.meta.env.PUBLIC_FACT_GRAPHIC_VENTA;
+const Componente_graphic_fact_clientes = () => {
+  // const DATA_API = import.meta.env.PUBLIC_CLIENTES_GRAPHIC_FACT_C;
 
   // const url = DATA_API+getLocalStorageData('authToken_vendedor');
   // const { data, isLoading, error } = useFetch<ApiResponse>(url);
@@ -31,22 +31,26 @@ const Componente_graphic_venta = () => {
   // }
 
   const data = {
-  id: 'graphic_venta',
-  xAxisData: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-  seriesData: [
-    {
-      data: [345, 150, 351, 684, 425, 165, 600, 287, 20, 209, 410, 102],
-      label: 'Ventas',
-      color: 'var(--colors-03_50)',
-    },
-  ],
-};
+    id: 'graphic_fact_clientes',
+    xAxisData: [
+      "1","2","3","4","5","6","7","8","9","10",
+      "11","12","13","14","15","16","17","18","19","20",
+      "21","22","23","24","25","26","27","28","29","30"
+    ],
+    seriesData: [
+      {
+        data: [345, 150, 351, 684, 425, 165, 600, 287, 20, 209, 410, 102, 550, 75, 812, 333, 941, 198, 705, 480, 222, 631, 38, 909, 583, 115, 762, 444, 137, 850],
+        label: 'Cantidad',
+        color: 'var(--colors-03_50)',
+      },
+    ],
+  };
 
   return (
     <>
       {data && (
         <ChartLine_01
-          label={'Cifra'}
+          label={'Pedidos'}
           chartData={data}
           yAxisConfig={{opacity: 1, disableLine: false}}
           lineDesign={{area: true}}
@@ -56,4 +60,4 @@ const Componente_graphic_venta = () => {
   );
 }
 
-export default Componente_graphic_venta;
+export default Componente_graphic_fact_clientes;

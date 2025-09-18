@@ -2,23 +2,20 @@ import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
 import CircularProgress from '@mui/material/CircularProgress';
 
-import ChartBar_02 from "src/components/ChartBar_02";
+import ChartLine_01 from "src/components/ChartLine_01";
 
 interface ApiResponse {
   id: string;
-  xAxisData: { 
-    data: string[] 
-  }[];
+  xAxisData: string[];
   seriesData: {
-    data: number[];
-    label?: string;
-    color?: string;
-    hidden?: boolean;
+      data: number[];
+      label: string;
+      color: string;
   }[];
 }
 
-const Componente_metas_cobr = () => {
-  const DATA_API = import.meta.env.PUBLIC_COBRANZA_META_COBR;
+const Componente_graphic_cobr_ref = () => {
+  const DATA_API = import.meta.env.PUBLIC_COBRANZA_GRAPHIC_COBR_REF;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
@@ -36,14 +33,15 @@ const Componente_metas_cobr = () => {
   return (
     <>
       {data && (
-        <ChartBar_02
+        <ChartLine_01
+          label={'Cifra'}
           chartData={data}
-          label={"Cobranza por día"}
-          yAxisConfig={{opacity: 1, disableLine: false, disableTicks: false}}
+          yAxisConfig={{opacity: 1, disableLine: false}}
+          lineDesign={{area: true}}
         />
       )}
     </>
   );
 }
 
-export default Componente_metas_cobr;
+export default Componente_graphic_cobr_ref;

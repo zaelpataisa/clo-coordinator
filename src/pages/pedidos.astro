@@ -6,6 +6,7 @@ import { containers, subcontainers, containers_titles, c_w_pedidos } from '../ut
 
 import Componente_dttl_pdds_gnrl from './pedidos/dtll_pdds_gnrl'
 import Componente_graphic_pdds_gnrl from './pedidos/graphic_pdds_gnrl'
+import Componente_table_pedidos from "./pedidos/table_pedidos";
 ---
 
 
@@ -14,15 +15,15 @@ import Componente_graphic_pdds_gnrl from './pedidos/graphic_pdds_gnrl'
    <Header />
    <div class="flex flex-col">
     <!-- Topbar -->
-     <div>
+    <div>
       <Topbar />
       <div class="hr-custom"></div>
-     </div>
+    </div>
 
      <!-- Content -->
-      <div id="content-index" class="w-full">
+      <div id="content" class="w-full">
         <!-- Container #1: Pedidos -->
-         <div id="container-ventas">
+        <div id="container-ventas">
           <div class="w-full flex flex-wrap">
             <!-- Subcontainer 1.1: Detalle de pedidos generales -->
             <div class={`${containers} ${c_w_pedidos['c_1-1']}`}>
@@ -37,7 +38,7 @@ import Componente_graphic_pdds_gnrl from './pedidos/graphic_pdds_gnrl'
             </div>
 
             <!-- Subcontainer 1.2: Pedidos realizados por vendedor -->
-            <div class={`${containers} ${c_w_pedidos['c_1-1']}`}>
+            <div class={`${containers} ${c_w_pedidos['c_1-2']}`}>
               <div class={`${subcontainers}`}>
                 <p class={`${containers_titles}`}>
                   Pedidos realizados por vendedor
@@ -48,11 +49,25 @@ import Componente_graphic_pdds_gnrl from './pedidos/graphic_pdds_gnrl'
               </div>
             </div>
           </div>
-         </div>
+        </div>
+
+        <!-- Container #2: Detalle de pedidos por vendedor -->
+        <div id="container-tables">
+          <div class="w-full flex flex-wrap">
+            <!-- Subcontainer 2.1: Detalle de pedidos por vendedor -->
+            <div class={`${containers} ${c_w_pedidos['c_2-1']}`}>
+              <div class={`${subcontainers}`}>
+                <p class={`${containers_titles} px-1 pb-2`}>
+                  Detalle de pedidos por vendedor
+                </p>
+                <div class="flex h-full w-full justify-center items-center">
+                  <Componente_table_pedidos client:load />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
-
-
-
    </div>
-
 </Layout>

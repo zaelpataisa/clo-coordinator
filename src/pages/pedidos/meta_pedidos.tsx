@@ -12,7 +12,7 @@ interface ApiResponse {
   porcentajeRestante: number;
 }
 
-const Componente_meta_venta = () => {
+const Componente_meta_pedidos = () => {
   const DATA_API = import.meta.env.PUBLIC_COORD_META_VENTA;
   
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
@@ -93,4 +93,4 @@ const Componente_meta_venta = () => {
   );
 }
 
-export default Componente_meta_venta;
+export default Componente_meta_pedidos;

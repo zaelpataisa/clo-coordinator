@@ -13,16 +13,16 @@
   --colors-01: #00072d;
   --colors-02: #001c55;
   --colors-03: #0a2472;
+  --colors-03_25: #0a24723f;
   --colors-03_50: #0a24727f;
-  /* --colors-03_25: #0a24723f;
-  --colors-03_75: #0a2472bf; */
+  --colors-03_75: #0a2472bf;
   --colors-04: #9b9b9b;
-  /* --colors-04_10: #9b9b9b10;
-  --colors-04_50: #9b9b9b50; */
+  /* --colors-04_10: #9b9b9b10; */
+  --colors-04_50: #9b9b9b50;
   --colors-05: #c20000;
-  /* --colors-05_25: #c200003f;
+  --colors-05_25: #c200003f;
   --colors-05_50: #c200007f;
-  --colors-05_75: #c20000bf; */
+  --colors-05_75: #c20000bf;
 
   --colors-06: #131313;
   --colors-07: #ffffff;

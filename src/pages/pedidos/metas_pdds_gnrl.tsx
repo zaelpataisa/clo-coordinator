@@ -17,16 +17,17 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_metas_cobr = () => {
-  const DATA_API = import.meta.env.PUBLIC_COBRANZA_META_COBR;
+const Componente_metas_pdds_gnrl = () => {
+  const DATA_API = import.meta.env.PUBLIC_COORD_META_VENTA_GNRL;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
     return (
-       <CircularProgress />
-    );
+        <CircularProgress />
+      );
+    ;
   }
 
   if (error) {
@@ -38,7 +39,7 @@ const Componente_metas_cobr = () => {
       {data && (
         <ChartBar_02
           chartData={data}
-          label={"Cobranza por día"}
+          label={"Pedidos"}
           yAxisConfig={{opacity: 1, disableLine: false, disableTicks: false}}
         />
       )}
@@ -46,4 +47,4 @@ const Componente_metas_cobr = () => {
   );
 }
 
-export default Componente_metas_cobr;
+export default Componente_metas_pdds_gnrl;

@@ -134,7 +134,7 @@ const Componente_table_asesor = () => {
     { id: 78, asesor: 'Asesor 78', fact_meta: '30.000$', fact: '27.500$', fact_rest: '2.500$', fact_percent: '91.67%', meta_cobr: '25.000$', cobr: '22.500$', cobr_rest: '2.500$', cobr_percent: '90%' },
     { id: 79, asesor: 'Asesor 79', fact_meta: '24.000$', fact: '21.500$', fact_rest: '2.500$', fact_percent: '89.58%', meta_cobr: '20.000$', cobr: '17.500$', cobr_rest: '2.500$', cobr_percent: '87.5%' },
   ];
-  const pageSizeOptions = [20];
+  const pageSizeOptions = [5, 10, 25, 50, 100];
 
   return (
     <>
@@ -144,7 +144,7 @@ const Componente_table_asesor = () => {
         initialState={{
           pagination: {
             paginationModel:
-            { page: 0, pageSize: 20 }
+            { page: 0, pageSize: 10 }
           }
         }}
         pageSizeOptions={pageSizeOptions}

@@ -7,13 +7,14 @@ import { containers, subcontainers, containers_titles, c_w_home } from '../utils
 import ButtonUrl from "src/components/ButtonUrl"
 
 // Ventas - Facturación
-import Componente_meta_venta from './facturacion/meta_venta';
-import Componente_metas_venta_gnrl from './facturacion/metas_venta_gnrl'
-import Componente_graphic_venta from './facturacion/graphic_venta'
-import Componente_cartera_venta from './facturacion/cartera_venta'
+import Componente_meta_pedidos from './pedidos/meta_pedidos';
+import Componente_metas_pdds_gnrl from './pedidos/metas_pdds_gnrl'
+import Componente_graphic_pedidos from './pedidos/graphic_pedidos'
+import Componente_cartera_pedidos from './pedidos/cartera_pedidos'
 // Cobranza
 import Componente_metas_cobr from './cobranza/metas_cobr'
-import Componente_graphic_cobr from './cobranza/graphic_cobr'
+import Componente_graphic_cobr_bs from './cobranza/graphic_cobr_bs'
+import Componente_graphic_cobr_ref from './cobranza/graphic_cobr_ref'
 import Componente_cobranza_cxc from './cobranza/cobranza_cxc'
 // Asesores
 import Componente_table_asesor from './home/table_asesor'
@@ -23,7 +24,7 @@ import Componente_graphic_analysis from './home/graphic_analysis'
 ---
 
 <Layout title="Inicio - CLO">
-    <!-- Header -->
+  <!-- Header -->
   <Header />
   <div class="flex flex-col">
     <!-- Topbar -->
@@ -33,7 +34,7 @@ import Componente_graphic_analysis from './home/graphic_analysis'
     </div>
 
     <!-- Content -->
-    <div id="content-index" class="w-full">
+    <div id="content" class="w-full">
       <!-- Container #1: Ventas -->
       <div id="container-ventas">
         <div class="w-full flex flex-wrap">
@@ -41,10 +42,10 @@ import Componente_graphic_analysis from './home/graphic_analysis'
           <div class={`${containers} ${c_w_home['c_1-1']}`}>
             <div class={`${subcontainers}`}>
               <p class={`${containers_titles}`}>
-                Avance de la meta (ventas)
+                Avance de la meta (pedidos)
               </p>
               <div class="flex flex-col justify-center items-center h-full">
-                <Componente_meta_venta client:load />
+                <Componente_meta_pedidos client:load />
               </div>
             </div>
           </div>
@@ -54,26 +55,26 @@ import Componente_graphic_analysis from './home/graphic_analysis'
             <div class={`${subcontainers}`}>
               <div class="flex flex-row items-center justify-center">
                 <p class={`${containers_titles} w-3/4`}>
-                  Meta de ventas general
+                  Meta de pedidos general
                 </p>
                 <div class="flex justify-end items-center w-1/4 space-x-2">
                   <ButtonUrl url={"/facturacion"} />
                 </div>
               </div>
               <div class="flex justify-center items-center h-[40dvh] w-auto">
-                <Componente_metas_venta_gnrl client:load />
+                <Componente_metas_pdds_gnrl client:load />
               </div>
             </div>
           </div>
 
-          <!-- Subcontainer 1.3: Ventas (gráfico) -->
+          <!-- Subcontainer 1.3: Ventas (pedido) -->
           <div class={`${containers} ${c_w_home['c_1-3']}`}>
             <div class={`${subcontainers}`}>
               <p class={`${containers_titles}`}>
-                Gráfico de ventas
+                Gráfico de pedidos
               </p>
               <div class="flex justify-center items-center h-[40dvh]">
-                <Componente_graphic_venta client:load >
+                <Componente_graphic_pedidos client:load >
               </div>
             </div>
           </div>
@@ -85,7 +86,7 @@ import Componente_graphic_analysis from './home/graphic_analysis'
                 Cartera
               </p>
               <div class="flex h-full w-full justify-center items-center p-4">
-                <Componente_cartera_venta client:load />
+                <Componente_cartera_pedidos client:load />
               </div>
             </div>
           </div>
@@ -95,7 +96,7 @@ import Componente_graphic_analysis from './home/graphic_analysis'
       <!-- Container #2: Cobranza -->
       <div id="container-cobranza">
         <div class="w-full flex flex-wrap">
-          <!-- Subcontainer 2.1: Meta de cobranza general -->
+          <!-- Subcontainer 2.1: Cobranza realizada -->
           <div class={`${containers} ${c_w_home['c_2-1']}`}>
             <div class={`${subcontainers}`}>
               <div class='flex flex-row items-center justify-start'>
@@ -112,25 +113,43 @@ import Componente_graphic_analysis from './home/graphic_analysis'
             </div>
           </div>
 
-          <!-- Subcontainer 2.2: Cobranza (gráfico) -->
+          <!-- Subcontainer 2.2: Cobranza (gráfico Bs) -->
           <div class={`${containers} ${c_w_home['c_2-2']}`}>
             <div class={`${subcontainers}`}>
               <div class='flex flex-row items-center justify-start'>
                 <p class={`${containers_titles} w-3/4`}>
-                    Cobranza realizada general
+                    Cobranza realizada (Bolivares)
                 </p>
                 <div class="flex justify-end items-center w-1/4 space-x-2">
                   <ButtonUrl url={"/cobranza"} />
                 </div>
               </div>
               <div class="flex justify-center items-center h-[40dvh]">
-                <Componente_graphic_cobr client:load >
+                <Componente_graphic_cobr_bs client:load >
               </div>
             </div>
           </div>
 
-          <!-- Subcontainer 2.3: Cobranza por día -->
+          <!-- Subcontainer 2.3: Cobranza (gráfico $) -->
           <div class={`${containers} ${c_w_home['c_2-3']}`}>
+            <div class={`${subcontainers}`}>
+              <div class='flex flex-row items-center justify-start'>
+                <p class={`${containers_titles} w-3/4`}>
+                    Cobranza realizada ($)
+                </p>
+                <div class="flex justify-end items-center w-1/4 space-x-2">
+                  <ButtonUrl url={"/cobranza"} />
+                </div>
+              </div>
+              <div class="flex justify-center items-center h-[40dvh]">
+                <Componente_graphic_cobr_ref client:load >
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Subcontainer 2.4: Cobranza por día -->
+          <div class={`${containers} ${c_w_home['c_2-4']}`}>
             <div class={`${subcontainers}`}>
               <p class={`${containers_titles} px-1 pb-2`}>
                 Cobranza por día
