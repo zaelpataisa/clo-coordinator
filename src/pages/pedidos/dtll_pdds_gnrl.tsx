@@ -14,42 +14,29 @@ interface ApiResponse {
 }
 
 const Componente_dttl_pdds_gnrl = () => {
-  // const DATA_API = import.meta.env.PUBLIC_COORD_DTTL_PDDS_GNRL;
+  const DATA_API = import.meta.env.PUBLIC_PEDIDOS_DTTL_PDDS_GNRL;
 
-  // const url = DATA_API+getLocalStorageData('authToken_vendedor');
-  // const { data, isLoading, error } = useFetch<ApiResponse>(url);
+  const url = DATA_API+getLocalStorageData('authToken_vendedor');
+  const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
-  // if (isLoading) {
-  //   return (
-  //       <CircularProgress />
-  //     );
-  //   ;
-  // }
+  if (isLoading) {
+    return (
+        <CircularProgress />
+      );
+    ;
+  }
 
-  // if (error) {
-  //   return <p>Error al obtener los datos: {error}</p>;
-  // }
-
-  const data = {
-    id: 'dtll_pdds_gnrl',
-    xAxisData: [
-      'Transito', 'Retenidos', 'En almacén', 'Facturados'
-    ],
-    seriesData: [
-      {
-        data: [15, 16, 12, 32],
-        color: 'var(--colors-03)'
-      }
-    ]
-  };
+  if (error) {
+    return <p>Error al obtener los datos: {error}</p>;
+  }
 
   return (
     <>
       {data && (
         <ChartBar_01 
           chartData={data}
-          label={""}
-          yAxisConfig={{opacityTickLabel: 0, disableLine: true, disableTicks: true}}
+          label={"Cantidad"}
+          yAxisConfig={{opacityTickLabel: 1, disableLine: false, disableTicks: false}}
         />
       )}
     </>

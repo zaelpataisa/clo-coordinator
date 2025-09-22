@@ -10,11 +10,11 @@ export const ROUTES = {
 }
 
 export const ROUTES_DATA = [
-  { name: 'Inicio',       icon: 'FaHome',              link: '/home' },
-  { name: 'Pedidos',      icon: 'FaNewspaper',         link: '/pedidos' },
-  { name: 'Facturación',  icon: 'FaMoneyBillWave',     link: '/facturacion', },
-  { name: 'Cobranzas',    icon: 'FaMoneyBillTrendUp',  link: '/cobranza' },
-  { name: 'Reclamos',     icon: 'LuBaggageClaim',      link: '/reclamos' },
-  { name: 'Clientes',     icon: 'FaBuildingUser',      link: '/clientes' },
-  { name: 'Vendedores',   icon: 'FaUserTie',           link: '/vendedores' },
+  { name: 'Inicio',       icon: 'FaHome',              link: '/home',           enable: true},
+  { name: 'Pedidos',      icon: 'FaNewspaper',         link: '/pedidos',        enable: true},
+  { name: 'Facturación',  icon: 'FaMoneyBillWave',     link: '/facturacion',    enable: true},
+  { name: 'Cobranzas',    icon: 'FaMoneyBillTrendUp',  link: '/cobranza',       enable: true},
+  { name: 'Reclamos',     icon: 'LuBaggageClaim',      link: '/reclamos',       enable: true},
+  { name: 'Clientes',     icon: 'FaBuildingUser',      link: '/clientes',       enable: false},
+  { name: 'Vendedores',   icon: 'FaUserTie',           link: '/vendedores',     enable: true},
 ];

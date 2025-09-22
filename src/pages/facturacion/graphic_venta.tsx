@@ -8,45 +8,33 @@ interface ApiResponse {
   id: string;
   xAxisData: string[];
   seriesData: {
-    data: number[];
-    label: string;
-    color: string;
+      data: number[];
+      label: string;
+      color: string;
   }[];
 }
 
 const Componente_graphic_venta = () => {
-  // const DATA_API = import.meta.env.PUBLIC_FACT_GRAPHIC_VENTA;
+  const DATA_API = import.meta.env.PUBLIC_FACT_GRAPHIC_VENTA;
 
-  // const url = DATA_API+getLocalStorageData('authToken_vendedor');
-  // const { data, isLoading, error } = useFetch<ApiResponse>(url);
+  const url = DATA_API+getLocalStorageData('authToken_vendedor');
+  const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
-  // if (isLoading) {
-  //   return (
-  //      <CircularProgress />
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <CircularProgress />
+    );
+  }
 
-  // if (error) {
-  //   return <p>Error al obtener los datos: {error}</p>;
-  // }
-
-  const data = {
-  id: 'graphic_venta',
-  xAxisData: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-  seriesData: [
-    {
-      data: [345, 150, 351, 684, 425, 165, 600, 287, 20, 209, 410, 102],
-      label: 'Ventas',
-      color: 'var(--colors-03_50)',
-    },
-  ],
-};
+  if (error) {
+    return <p>Error al obtener los datos: {error}</p>;
+  }
 
   return (
     <>
       {data && (
         <ChartLine_01
-          label={'Cifra'}
+          label={'Pedidos'}
           chartData={data}
           yAxisConfig={{opacity: 1, disableLine: false}}
           lineDesign={{area: true}}

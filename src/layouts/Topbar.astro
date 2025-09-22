@@ -10,12 +10,14 @@ import { ROUTES_DATA } from "src/utils/routes";
     return (
       <div class="flex flex-col justify-center items-center space-y-1 min-w-[5rem]">
         <a
-          href={item.link}
-          class={`text-[2rem] border-2 border-[var(--colors-03)] rounded-2xl p-3 hover:bg-[var(--colors-03)] hover:text-[var(--colors-07)] ${isActive ? 'bg-[var(--colors-03)] text-[var(--colors-07)]' : 'bg-[var(--colors-07)] text-[var(--colors-03)]'}`}
-        >
+          href={item.enable ? item.link : null}
+          class={`text-[2rem] border-2 rounded-2xl p-3 
+            ${item.enable ? 'border-[var(--colors-03)] text-[var(--colors-03)] hover:bg-[var(--colors-03)] hover:text-[var(--colors-07)] ' : 'border-[var(--colors-04)] text-[var(--colors-04)] cursor-not-allowed'}
+            ${isActive && item.enable ? 'bg-[var(--colors-03)] text-[var(--colors-07)]' : 'bg-[var(--colors-07)]'}`}
+        >
           <IconSelect iconCode={item.icon as keyof typeof IconMap} client:load />
         </a>
-        <p class='font-bold text-[var(--colors-03)]'>
+        <p class={`font-bold ${item.enable ? 'text-[var(--colors-03)]' : 'text-[var(--colors-04)]'}`}>
           {item.name}
         </p>
       </div>

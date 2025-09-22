@@ -32,7 +32,7 @@ import Componente_table_cobr_vend from './vendedores/table_cobr_vend'
               <p class={`${containers_titles} px-1 pb-2`}>
                 Detalle general de vendedores
               </p>
-              <div class="flex h-full w-full justify-center items-center">
+              <div class="flex justify-center items-center h-[40dvh]">
                 <Componente_table_vendedores client:load />
               </div>
             </div>
@@ -51,7 +51,7 @@ import Componente_table_cobr_vend from './vendedores/table_cobr_vend'
                   Detalle de clientes por vendedor
                 </p>
               </div>
-              <div class="flex justify-center items-center h-[40dvh] w-auto">
+              <div class="flex justify-center items-center h-[40dvh]">
                 <Componente_graphic_fact_pdds_vend client:load />
               </div>
             </div>
@@ -60,7 +60,7 @@ import Componente_table_cobr_vend from './vendedores/table_cobr_vend'
           <!-- Subcontainer 2.2: Histórico de pedidos y facturas -->
           <div class={`${containers} ${c_w_vendedores['c_2-1']}`}>
             <div class={`${subcontainers}`}>
-              <div class="flex flow-row justify-center items-center">
+              <div class="flex flow-row justify-start items-center">
                 <p class={`${containers_titles} px-1 pb-2`}>
                   Histórico de pedidos y facturas
                 </p>
@@ -93,7 +93,7 @@ import Componente_table_cobr_vend from './vendedores/table_cobr_vend'
           <!-- Subcontainer 3.2: Histórico de cobranza -->
           <div class={`${containers} ${c_w_vendedores['c_2-1']}`}>
             <div class={`${subcontainers}`}>
-              <div class="flex flow-row justify-center items-center">
+              <div class="flex flow-row justify-start items-center">
                 <p class={`${containers_titles} px-1 pb-2`}>
                   Histórico de cobranza
                 </p>
