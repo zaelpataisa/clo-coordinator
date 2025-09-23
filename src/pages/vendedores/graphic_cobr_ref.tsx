@@ -2,44 +2,46 @@ import { useFetch } from "src/hooks/useFetch";
 import { getLocalStorageData } from "src/utils/GetLocalStorageData";
 import CircularProgress from '@mui/material/CircularProgress';
 
-import ChartBar_01 from "src/components/ChartBar_01";
+import ChartLine_01 from "src/components/ChartLine_01";
 
 interface ApiResponse {
   id: string;
   xAxisData: string[];
   seriesData: {
     data: number[];
+    label: string;
     color: string;
   }[];
 }
 
-const Componente_clients_actives = () => {
-  const DATA_API = import.meta.env.PUBLIC_CLIENTES_CLIENTS_ACTIVES;
+const Componente_graphic_cobr_ref = () => {
+  const DATA_API = import.meta.env.PUBLIC_VENDS_GRAPHIC_COBR_REF;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
     return (
-        <CircularProgress />
-      );
-    ;
+       <CircularProgress />
+    );
   }
 
   if (error) {
     return <p>Error al obtener los datos: {error}</p>;
   }
+
   return (
     <>
       {data && (
-        <ChartBar_01 
+        <ChartLine_01
+          label={'Cobranza'}
           chartData={data}
-          label={"Cantidad"}
-          yAxisConfig={{opacityTickLabel: 0, disableLine: true, disableTicks: true}}
+          yAxisConfig={{opacity: 1, disableLine: false}}
+          lineDesign={{area: true}}
         />
       )}
     </>
   );
 }
 
-export default Componente_clients_actives;
+export default Componente_graphic_cobr_ref;

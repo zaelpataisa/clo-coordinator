@@ -61,7 +61,10 @@ const LoginForm = () => {
           Ingresar
         </button>
       </form>
-      <div className="flex justify-center items-center flex-col">
+      <div 
+        className="flex justify-center items-center flex-col"
+        suppressHydrationWarning={true}
+      >
         {message && (
           <p className={`font-rFont font-bold text-[var(--colors-07)] p-4`}>
             {message}

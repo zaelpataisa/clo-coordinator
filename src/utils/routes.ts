@@ -15,6 +15,6 @@ export const ROUTES_DATA = [
   { name: 'Facturación',  icon: 'FaMoneyBillWave',     link: '/facturacion',    enable: true},
   { name: 'Cobranzas',    icon: 'FaMoneyBillTrendUp',  link: '/cobranza',       enable: true},
   { name: 'Reclamos',     icon: 'LuBaggageClaim',      link: '/reclamos',       enable: true},
-  { name: 'Clientes',     icon: 'FaBuildingUser',      link: '/clientes',       enable: false},
+  { name: 'Clientes',     icon: 'FaBuildingUser',      link: '/clientes',       enable: true},
   { name: 'Vendedores',   icon: 'FaUserTie',           link: '/vendedores',     enable: true},
 ];

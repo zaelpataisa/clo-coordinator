@@ -10,8 +10,12 @@ export default defineConfig({
     ssr: {
       noExternal: ['@mui/x-data-grid']
     },
+    // @ts-ignore
     plugins: [tailwindcss()]
   },
-
+  server: {
+    host: '192.168.0.2',
+    port: 3000
+  },
   integrations: [react()],
 });

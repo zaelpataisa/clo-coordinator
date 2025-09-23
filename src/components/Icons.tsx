@@ -32,7 +32,10 @@ const IconSelect = ({iconCode}: IconSelectProps) => {
 
     if (IconComponent) {
         return (
-            <div className="icon-container">
+            <div 
+                className="icon-container"
+                suppressHydrationWarning={true}
+            >
                 <IconComponent />
             </div>
         );

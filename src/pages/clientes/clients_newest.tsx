@@ -14,35 +14,21 @@ interface ApiResponse {
 }
 
 const Componente_clients_newest = () => {
-  // const DATA_API = import.meta.env.PUBLIC_CLIENTES_CLIENTS_NEWEST;
+  const DATA_API = import.meta.env.PUBLIC_CLIENTES_CLIENTS_NEWEST;
 
-  // const url = DATA_API+getLocalStorageData('authToken_vendedor');
-  // const { data, isLoading, error } = useFetch<ApiResponse>(url);
+  const url = DATA_API+getLocalStorageData('authToken_vendedor');
+  const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
-  // if (isLoading) {
-  //   return (
-  //       <CircularProgress />
-  //     );
-  //   ;
-  // }
+  if (isLoading) {
+    return (
+        <CircularProgress />
+      );
+    ;
+  }
 
-  // if (error) {
-  //   return <p>Error al obtener los datos: {error}</p>;
-  // }
-
-  const data = {
-    id: 'clients_newest',
-    xAxisData: [
-      'Adamo', 'Mario', 'Asesor 4', 'Asesor 5', 'Asesor 6', 'Asesor 7',
-      'Adamo1', 'Mario1', 'Asesor 41', 'Asesor 51', 'Asesor 61', 'Asesor 71'
-    ],
-    seriesData: [
-      {
-        data: [4, 3, 5, 2, 5, 7, 4, 3, 5, 2, 5, 7],
-        color: 'var(--colors-03)',
-      },
-    ],
-  };
+  if (error) {
+    return <p>Error al obtener los datos: {error}</p>;
+  }
 
   return (
     <>

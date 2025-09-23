@@ -70,6 +70,7 @@ export const c_w_vendedores = {
   'c_1-1': c_w1y1_w1_1,
   'c_2-1': c_w1y2_w1_2,
   'c_2-2': c_w1y2_w1_2,
-  'c_3-1': c_w1y2_w1_2,
-  'c_3-2': c_w1y2_w1_2,
+  'c_3-1': c_w1y1_w1_3,
+  'c_3-2': c_w1y1_w1_3,
+  'c_3-3': c_w1y1_w1_3,
 }

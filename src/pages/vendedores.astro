@@ -7,7 +7,8 @@ import { containers, subcontainers, containers_titles, c_w_vendedores } from '..
 import Componente_table_vendedores from './vendedores/table_vendedores'
 import Componente_graphic_fact_pdds_vend from './vendedores/graphic_fact_pdds_vend'
 import Componente_table_fact_pdds_vend from './vendedores/table_fact_pdds_vend'
-import Componente_graphic_cobr_vend from './vendedores/graphic_cobr_vend'
+import Componente_graphic_cobr_bs from './vendedores/graphic_cobr_bs'
+import Componente_graphic_cobr_ref from './vendedores/graphic_cobr_ref'
 import Componente_table_cobr_vend from './vendedores/table_cobr_vend'
 ---
 
@@ -81,17 +82,31 @@ import Componente_table_cobr_vend from './vendedores/table_cobr_vend'
             <div class={`${subcontainers}`}>
               <div class="flex flex-row justify-between items-center">
                 <p class={`${containers_titles} px-1 pb-2`}>
-                  Cantidad de cobranzas
+                  Cantidad de cobranzas ($)
                 </p>
               </div>
               <div class="flex justify-center items-center h-[40dvh] w-auto">
-                <Componente_graphic_cobr_vend client:load />
+                <Componente_graphic_cobr_ref client:load />
               </div>
             </div>
           </div>
 
-          <!-- Subcontainer 3.2: Histórico de cobranza -->
-          <div class={`${containers} ${c_w_vendedores['c_2-1']}`}>
+          <!-- Subcontainer 3.2: Cantidad de cobranzas -->
+          <div class={`${containers} ${c_w_vendedores['c_3-2']}`}>
+            <div class={`${subcontainers}`}>
+              <div class="flex flex-row justify-between items-center">
+                <p class={`${containers_titles} px-1 pb-2`}>
+                  Cantidad de cobranzas (Bs)
+                </p>
+              </div>
+              <div class="flex justify-center items-center h-[40dvh] w-auto">
+                <Componente_graphic_cobr_bs client:load />
+              </div>
+            </div>
+          </div>
+
+          <!-- Subcontainer 3.3: Histórico de cobranza -->
+          <div class={`${containers} ${c_w_vendedores['c_3-3']}`}>
             <div class={`${subcontainers}`}>
               <div class="flex flow-row justify-start items-center">
                 <p class={`${containers_titles} px-1 pb-2`}>
@@ -106,8 +121,6 @@ import Componente_table_cobr_vend from './vendedores/table_cobr_vend'
 
         </div>
       </div>
-
-
     </div>
   </div>
 </Layout>
