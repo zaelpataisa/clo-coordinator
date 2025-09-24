@@ -1,0 +1,14 @@
+---
+import Layout from "src/layouts/Layout.astro"
+import { CustomGaugeChart } from "src/test/gauge"
+---
+
+<Layout title="test">
+  <main class="flex justify-center items-center min-w-[100dvh] min-h-[100dvh] bg-gray-200">
+    <div class="flex flex-col justify-center items-center rounded-2xl bg-white p-4 space-y-4">
+      <div class="flex justify-center w-full">
+        <CustomGaugeChart client:load /></div>
+      </div>
+    </div>
+  </main>
+</Layout>
