@@ -14,7 +14,7 @@ interface ApiResponse {
 }
 
 const Componente_graphic_pdds_gnrl = () => {
-  const DATA_API = import.meta.env.PUBLIC_PEDIDOS_GRAPHIC_PDDS_GNRL;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_PEDIDOS_GRAPHIC_PDDS_GNRL;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

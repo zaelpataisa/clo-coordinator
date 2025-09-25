@@ -25,7 +25,7 @@ interface ApiResponse {
 }
 
 const Componente_table_fact_pdds_vend = () => {
-  const DATA_API = import.meta.env.PUBLIC_VENDS_GRAPHIC_FACT_PDDS_VEND;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_VENDS_GRAPHIC_FACT_PDDS_VEND;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

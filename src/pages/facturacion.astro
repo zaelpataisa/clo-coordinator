@@ -2,7 +2,8 @@
 import Topbar from "src/layouts/Topbar.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "src/layouts/Header.astro";
-import { containers, subcontainers, containers_titles, c_w_facturacion } from '../utils/Containers';
+import { container_father } from '../utils/Containers';
+import ComponentFather from "src/components/ComponentFather.astro";
 
 import Componente_metas_venta_gnrl from "./facturacion/metas_venta_gnrl";
 import Componente_graphic_venta from "./facturacion/graphic_venta";
@@ -22,51 +23,34 @@ import Componente_table_facturacion from "./facturacion/table_facturacion"
     <!-- Content -->
     <div id="content" class="w-full">
       <!-- Container #1: Ventas -->
-      <div id="container-ventas">
-        <div class="w-full flex flex-wrap">
-          <!-- Subcontainer 1.1: Meta de ventas general -->
-          <div class={`${containers} ${c_w_facturacion['c_1-1']}`}>
-            <div class={`${subcontainers}`}>
-              <p class={`${containers_titles}`}>
-                Meta de ventas general
-              </p>
-              <div class="flex justify-center items-center h-[40dvh] w-auto">
-                <Componente_metas_venta_gnrl client:load />
-              </div>
-            </div>
-          </div>
+      <div id="container-ventas" class={`${container_father}`}>
+        <!-- Subcontainer 1.1: Meta de ventas general -->
+        <ComponentFather
+          title={"Meta de ventas general"}
+          containerId={"facturacion_1-1"}
+        >
+          <Componente_metas_venta_gnrl client:load />
+        </ComponentFather>
 
-          <!-- Subcontainers 1.2: Facturación (gráfico) -->
-          <div class={`${containers} ${c_w_facturacion['c_1-2']}`}>
-            <div class={`${subcontainers}`}>
-              <p class={`${containers_titles}`}>
-                Gráfico de ventas
-              </p>
-              <div class="flex justify-center items-center h-[40dvh] w-auto">
-                <Componente_graphic_venta client:load />
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Subcontainers 1.2: Facturación (gráfico) -->
+        <ComponentFather
+          title={"Gráfico de ventas"}
+          containerId={"facturacion_1-2"}
+        >
+          <Componente_graphic_venta client:load />
+        </ComponentFather>
       </div>
 
       <!-- Container #2: Facturación  -->
-      <div id="container-facturacion">
-        <div class="w-full flex flex-wrap">
-          <!-- Subcontainer 2.1: Tabla de facturación -->
-          <div class={`${containers} ${c_w_facturacion['c_2-1']}`}>
-            <div class={`${subcontainers}`}>
-              <p class={`${containers_titles} px-1 pb-2`}>
-                Detalle de facturación
-              </p>
-              <div class="flex justify-center items-center h-[40dvh] w-auto">
-                <Componente_table_facturacion client:load />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="container-facturacion" class={`${container_father}`}>
+        <!-- Subcontainer 2.1: Tabla de facturación -->
+        <ComponentFather
+          title={"Detalle de facturación"}
+          containerId={"facturacion_2-1"}
+        >
+          <Componente_table_facturacion client:load />
+        </ComponentFather>
       </div>
-      
     </div>
   </div>
 </Layout>

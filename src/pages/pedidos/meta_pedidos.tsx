@@ -13,8 +13,8 @@ interface ApiResponse {
 }
 
 const Componente_meta_pedidos = () => {
-  const DATA_API = import.meta.env.PUBLIC_COORD_META_VENTA;
-  
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_META_VENTA;
+
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 

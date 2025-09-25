@@ -27,7 +27,7 @@ interface ApiResponse {
 }
 
 const Componente_table_facturacion = () => {
-  const DATA_API = import.meta.env.PUBLIC_FACT_TABLE_FACTURACION;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_FACT_TABLE_FACTURACION;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

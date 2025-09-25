@@ -1,43 +1,28 @@
 import { useEffect, useState } from "react";
+import { getLocalStorageData } from "src/utils/GetLocalStorageData";
+import CircularProgress from '@mui/material/CircularProgress'; 
 
-// Define una interfaz para el objeto de un solo producto
-interface Producto {
-  codigo: string;
-  nombre: string;
-  marca: string;
-  precio1: number;
-  existencia: string;
-  fechamodifi: string;
-  // Puedes añadir más propiedades de tu API aquí
+interface DataUpdaterProps {
+  url: string;
 }
 
-// Define una interfaz para la respuesta completa de la API
-interface ApiResponse {
-  data: Producto[];
-  status: string;
-  description: string;
-  message: string;
-  // Puedes añadir más propiedades aquí
-}
-
-const DataUpdater: React.FC = () => {
+const FetchUpdater: React.FC<DataUpdaterProps> = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [apiResponse, setApiResponse] = useState<ApiResponse | null>(null);
+  const [apiResponse, setApiResponse] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
   const fetchData = async () => {
     try {
-      // product
-      const response = await fetch('https://api.cloccidental.com/api/product/2025-09-12%2009:50:28');
-      
-      if (!response.ok) {
-        throw new Error(`Error HTTP! estado: ${response.status}`);
+      const response = await fetch(url+getLocalStorageData('authToken_vendedor'));
+
+      if(!response.ok){
+        throw new Error(`Error HTTP! Estado: ${response.status}`);
       }
-      
-      const result: ApiResponse = await response.json();
+
+      const result: any = await response.json();
       setApiResponse(result);
-    } catch (error: unknown) {
-      console.error("Hubo un error al obtener los datos:", error);
+    } catch(error: unknown){
+      console.error("Fetch error: ", error)
       if (error instanceof Error) {
         setError(error.message);
       } else {
@@ -46,26 +31,21 @@ const DataUpdater: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }
 
   useEffect(() => {
-    // Llama a la función fetchData inmediatamente al cargar el componente
     fetchData();
 
-    // Configura el temporizador para llamar a fetchData cada 5 segundos
     const interval = setInterval(() => {
       fetchData();
-    }, 5000); // 5000 milisegundos = 5 segundos
+    }, 5000);
 
-    // La función de limpieza se ejecuta cuando el componente se desmonta
     return () => clearInterval(interval);
-  }, []); // El array de dependencias vacío asegura que esto solo se ejecute una vez
+  }, []);
 
   if (isLoading) {
     return (
-      <div className="App">
-        <h1>Cargando...</h1>
-      </div>
+      <CircularProgress />
     );
   }
 
@@ -77,23 +57,13 @@ const DataUpdater: React.FC = () => {
     );
   }
   
-  if (!apiResponse || !Array.isArray(apiResponse.data)) {
-    return (
-      <div className="App">
-        <h1>La API no devolvió datos de productos.</h1>
-      </div>
-    );
-  }
+  console.log(apiResponse)
 
   return (
-    <>
-      {apiResponse.data.map((item) => (
-        <div key={item.codigo} className="p-2 border-1 w-1/2">
-          {item.codigo}
-        </div>
-      ))}
-    </>
+    <div>
+      <pre>{JSON.stringify(apiResponse, null, 2)}</pre>
+    </div>
   );
-};
+}
 
-export default DataUpdater;
+export default FetchUpdater;

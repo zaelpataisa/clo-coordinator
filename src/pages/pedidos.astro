@@ -2,7 +2,8 @@
 import Topbar from "src/layouts/Topbar.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "src/layouts/Header.astro";
-import { containers, subcontainers, containers_titles, c_w_pedidos } from '../utils/Containers';
+import { container_father } from '../utils/Containers';
+import ComponentFather from "src/components/ComponentFather.astro";
 
 import Componente_dttl_pdds_gnrl from './pedidos/dtll_pdds_gnrl'
 import Componente_graphic_pdds_gnrl from './pedidos/graphic_pdds_gnrl'
@@ -23,51 +24,35 @@ import Componente_table_pedidos from "./pedidos/table_pedidos";
      <!-- Content -->
       <div id="content" class="w-full">
         <!-- Container #1: Pedidos -->
-        <div id="container-ventas">
-          <div class="w-full flex flex-wrap">
-            <!-- Subcontainer 1.1: Detalle de pedidos generales -->
-            <div class={`${containers} ${c_w_pedidos['c_1-1']}`}>
-              <div class={`${subcontainers}`}>
-                <p class={`${containers_titles}`}>
-                  Detalle de pedidos generales
-                </p>
-                <div class="flex justify-center items-center h-[40dvh] w-auto">
-                  <Componente_dttl_pdds_gnrl client:load />
-                </div>
-              </div>
-            </div>
+        <div id="container-pedidos" class={`${container_father}`}>
+          <!-- Subcontainer 1.1: Detalle de pedidos generales -->
+          <ComponentFather 
+            title={"Detalle de pedidos generales"}
+            containerId={"pedidos_1-1"}
+          >
+            <Componente_dttl_pdds_gnrl client:load />
+          </ComponentFather>
 
-            <!-- Subcontainer 1.2: Pedidos realizados por vendedor -->
-            <div class={`${containers} ${c_w_pedidos['c_1-2']}`}>
-              <div class={`${subcontainers}`}>
-                <p class={`${containers_titles}`}>
-                  Pedidos realizados por vendedor
-                </p>
-                <div class="flex justify-center items-center h-[40dvh] w-auto">
-                  <Componente_graphic_pdds_gnrl client:load/>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- Subcontainer 1.2: Pedidos realizados por vendedor -->
+           <ComponentFather
+            title={"Pedidos realizados por vendedor"}
+            containerId={"pedidos_1-2"}
+          >
+            <Componente_graphic_pdds_gnrl client:load/>
+          </ComponentFather>
         </div>
+
 
         <!-- Container #2: Detalle de pedidos por vendedor -->
-        <div id="container-tables">
-          <div class="w-full flex flex-wrap">
-            <!-- Subcontainer 2.1: Detalle de pedidos por vendedor -->
-            <div class={`${containers} ${c_w_pedidos['c_2-1']}`}>
-              <div class={`${subcontainers}`}>
-                <p class={`${containers_titles} px-1 pb-2`}>
-                  Detalle de pedidos por vendedor
-                </p>
-                <div class="flex justify-center items-center h-[40dvh]">
-                  <Componente_table_pedidos client:load />
-                </div>
-              </div>
-            </div>
-          </div>
+        <div id="container-pedidos-table" class={`${container_father}`}>
+          <!-- Subcontainer 2.1: Detalle de pedidos por vendedor -->
+          <ComponentFather
+            title={"Detalle de pedidos por vendedor"}
+            containerId={"pedidos_2-1"}
+          >
+            <Componente_table_pedidos client:load />
+          </ComponentFather>
         </div>
-        
       </div>
    </div>
 </Layout>

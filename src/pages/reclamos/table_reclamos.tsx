@@ -23,7 +23,7 @@ interface ApiResponse {
 }
 
 const Componente_table_reclamos = () => {
-  const DATA_API = import.meta.env.PUBLIC_RECLAMOS_TABLE_RECLAMOS;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_RECLAMOS_TABLE_RECLAMOS;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

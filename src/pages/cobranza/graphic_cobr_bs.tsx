@@ -15,7 +15,7 @@ interface ApiResponse {
 }
 
 const Componente_graphic_cobr_bs = () => {
-  const DATA_API = import.meta.env.PUBLIC_COBRANZA_GRAPHIC_COBR_BS;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COBRANZA_GRAPHIC_COBR_BS;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

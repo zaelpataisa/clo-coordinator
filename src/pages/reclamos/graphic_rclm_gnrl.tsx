@@ -15,7 +15,7 @@ interface ApiResponse {
 }
 
 const Componente_graphic_rclm_gnrl = () => {
-  const DATA_API = import.meta.env.PUBLIC_RECLAMOS_GRAPHIC_RCLM_GNRL;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_RECLAMOS_GRAPHIC_RCLM_GNRL;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

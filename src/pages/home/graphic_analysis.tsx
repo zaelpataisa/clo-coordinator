@@ -15,7 +15,7 @@ interface ApiResponse {
 }
 
 const Componente_graphic_venta = () => {
-  const DATA_API = import.meta.env.PUBLIC_COORD_GRAPHIC_ANALYSIS;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_GRAPHIC_ANALYSIS;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

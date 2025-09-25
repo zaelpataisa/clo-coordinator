@@ -5,7 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 interface ApiResponse extends Array<number> {}
 
 const Componente_cartera_pedidos = () => {
-  const DATA_API = import.meta.env.PUBLIC_COORD_CARTERA;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_CARTERA;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

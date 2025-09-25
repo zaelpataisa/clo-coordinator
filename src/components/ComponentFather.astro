@@ -1,0 +1,30 @@
+---
+import { subcontainers, container_titles, c_config, container_section1, container_urlBtn, container_section2 } from '../utils/Containers';
+import ButtonUrl from './ButtonUrl';
+
+interface Props {
+  title: string;
+  containerId: keyof typeof c_config;
+  urlBtnText?: string;
+}
+
+const { title, containerId, urlBtnText } = Astro.props as Props;
+---
+
+<div class={`flex ${c_config[containerId]}`}>
+  <div class={`${subcontainers}`}>
+    <div class={`${container_section1}`}>
+      <p class={`${container_titles}`}>
+        { title }
+      </p>
+      {urlBtnText && (
+        <div class={`${container_urlBtn}`}>
+          <ButtonUrl url={`${urlBtnText}`} />
+        </div>
+      )}
+    </div>
+    <div class={`${container_section2}`}>
+      <slot />
+    </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ interface ApiResponse {
 }
 
 const Componente_table_pedidos = () => {
-  const DATA_API = import.meta.env.PUBLIC_PEDIDOS_TABLE_PEDIDOS;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_PEDIDOS_TABLE_PEDIDOS;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

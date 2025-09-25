@@ -14,7 +14,7 @@ interface ApiResponse {
 }
 
 const Componente_clients_actives = () => {
-  const DATA_API = import.meta.env.PUBLIC_CLIENTES_CLIENTS_ACTIVES;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_CLIENTES_CLIENTS_ACTIVES;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

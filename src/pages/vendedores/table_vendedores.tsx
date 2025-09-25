@@ -23,7 +23,7 @@ interface ApiResponse {
 }
 
 const Componente_table_vendedores = () => {
-  const DATA_API = import.meta.env.PUBLIC_VENDS_TABLE_VENDEDORES;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_VENDS_TABLE_VENDEDORES;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

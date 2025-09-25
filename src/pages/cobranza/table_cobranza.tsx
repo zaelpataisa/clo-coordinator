@@ -24,7 +24,7 @@ interface ApiResponse {
 }
 
 const Componente_table_cobranza = () => {
-  const DATA_API = import.meta.env.PUBLIC_COBRANZA_TABLE_COBR;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COBRANZA_TABLE_COBR;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

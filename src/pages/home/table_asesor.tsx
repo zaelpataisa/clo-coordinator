@@ -26,7 +26,7 @@ interface ApiResponse {
 }
 
 const Componente_table_asesor = () => {
-  const DATA_API = import.meta.env.PUBLIC_COORD_TABLE_ASESOR;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_TABLE_ASESOR;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);

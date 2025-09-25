@@ -20,7 +20,7 @@ export const useFetch = <T,>(url: string, intervalSeconds: number = 0) => {
       const result: T = await response.json();
       setData(result);
     } catch (error: unknown) {
-      console.error(`Error al obtener la BD: ${error}`);
+      // console.error(`Error al obtener la BD: ${error}`);
       if (error instanceof Error) {
         setError(error.message);
       } else {

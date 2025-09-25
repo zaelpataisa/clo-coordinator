@@ -31,7 +31,7 @@ interface ApiResponse {
 }
 
 const Componente_cobranza_cxc = () => {
-  const DATA_API = import.meta.env.PUBLIC_COBRANZA_COBRANZA_CXC;
+  const DATA_API = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COBRANZA_COBRANZA_CXC;
 
   const url = DATA_API+getLocalStorageData('authToken_vendedor');
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
