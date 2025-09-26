@@ -1,14 +1,15 @@
 ---
 import Layout from "src/layouts/Layout.astro"
 import { CustomGaugeChart } from "src/test/gauge"
-import DataUpdater from "src/test/TestAngel"
+import NewComponent from "src/test/NewComponent"
 ---
 
 <Layout title="test">
   <div class="flex flex-wrap flex-row p-2 space-x-2 space-y-2">
-    <DataUpdater 
-      url={import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_META_VENTA} 
+    <NewComponent 
       client:load 
     />
   </div>
 </Layout>
+  
+  <!-- url={import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_META_VENTA}  -->

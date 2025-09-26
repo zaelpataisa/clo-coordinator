@@ -9,7 +9,7 @@ export const container_section1 = "flex flex-row items-center justify-between p-
 export const container_titles = "font-rFont font-bold text-[var(--colors-03)] text-[1.25rem]";
 export const container_urlBtn = "flex justify-end items-center w-1/4 space-x-2";
 
-export const container_section2 = "flex justify-center items-center h-[40dvh]";
+export const container_section2 = "flex justify-center items-center min-h-[40dvh]";
 
 const c_w1y1_w1_1 = "w-1/1 md:w-1/1 lg:w-1/1 xl:w-1/1 2xl:w-1/1";
 const c_w1y1_w1_3 = "w-1/1 md:w-1/1 lg:w-1/3 xl:w-1/3 2xl:w-1/3";
