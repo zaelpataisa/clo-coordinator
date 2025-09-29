@@ -93,11 +93,20 @@ import ComponenteGraphicAnalysis from './home/_GraphicAnalysis'
         >
           <ComponenteGraphicCobrRef client:load />
         </ComponentFather>
+
+        <!-- Subcontainer 2.3: Cobranza por día ($) -->
+        <ComponentFather
+          title={"Cobranza por día ($)"}
+          containerId={"home_2-3"}
+          urlBtnText={"/cobranza"}
+        >
+          <ComponentePorcentajeCXC client:load />
+        </ComponentFather>
         
-        <!-- Subcontainer 2.3: Cobranza por día -->
+        <!-- Subcontainer 2.4: Cobranza por día -->
         <ComponentFather
           title={"Cobranza por día"}
-          containerId={"home_2-3"}
+          containerId={"home_2-4"}
           urlBtnText={"/cobranza"}
         >
           <ComponenteCobranzaCXC client:load />
@@ -105,38 +114,29 @@ import ComponenteGraphicAnalysis from './home/_GraphicAnalysis'
       </div>
 
       <!-- Container #3: Asesores -->
-      <div id="container-asesores"  class={`${container_father}`}>
-        <!-- Subcontainer 3.1: Cobranza por día ($) -->
-        <ComponentFather
-          title={"Cobranza por día ($)"}
-          containerId={"home_3-1"}
-          urlBtnText={"/cobranza"}
-        >
-          <ComponentePorcentajeCXC client:load />
-        </ComponentFather>
-        
-        <!-- Subcontainer 3.2: Detalles por vendedor -->
+      <div id="container-asesores"  class={`${container_father}`}>        
+        <!-- Subcontainer 3.1: Detalles por vendedor -->
         <ComponentFather
           title={"Detalles por vendedor"}
-          containerId={"home_3-2"}
+          containerId={"home_3-1"}
           urlBtnText={"/vendedores"}
         >
           <ComponenteTableAsesor client:load />
         </ComponentFather>
         
-        <!-- Subcontainer 3.3: Detalle por día -->
+        <!-- Subcontainer 3.2: Detalle por día -->
         <ComponentFather
           title={"Detalles por día"}
-          containerId={"home_3-3"}
+          containerId={"home_3-2"}
           urlBtnText={""}
         >
           <ComponenteTableDaysDetail client:load />
         </ComponentFather>
         
-        <!-- Subcontainer 3.4: Análisis gráfico  -->
+        <!-- Subcontainer 3.3: Análisis gráfico  -->
         <ComponentFather
           title={"Análisis gráfico"}
-          containerId={"home_3-4"}
+          containerId={"home_3-3"}
           urlBtnText={""}
         >
           <ComponenteGraphicAnalysis client:load />

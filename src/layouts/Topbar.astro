@@ -4,6 +4,17 @@ import { ROUTES_DATA } from "src/utils/routes";
 ---
 
 <div id="topbar-menu" class="flex justify-start items-start flex-row space-x-2 py-4 mx-4">
+  <div class="flex flex-col justify-center items-center space-y-1 min-w-[5rem]">
+    <a 
+      href="#"
+      class="text-[2rem] border-2 border-[var(--colors-05)] rounded-2xl p-3 text-[var(--colors-05)] hover:bg-[var(--colors-05)] hover:text-[var(--colors-07)]"
+    >
+      <IconSelect iconCode={'FaCalendarAlt'} client:load />
+    </a>
+      <p class={`font-bold text-[var(--colors-05)]`}>
+        Hoy
+      </p>
+  </div>
   {ROUTES_DATA.map((item) => {
     const isActive = Astro.url.pathname === item.link;
 
