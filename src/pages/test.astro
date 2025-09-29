@@ -1,15 +1,12 @@
 ---
 import Layout from "src/layouts/Layout.astro"
-import { CustomGaugeChart } from "src/test/gauge"
-import NewComponent from "src/test/NewComponent"
+import CustomTestingComponent from "src/test/TestComponent"
 ---
 
 <Layout title="test">
-  <div class="flex flex-wrap flex-row p-2 space-x-2 space-y-2">
-    <NewComponent 
-      client:load 
-    />
-  </div>
+  <main class="flex justify-center items-center min-w-[100dvh] min-h-[100dvh] bg-gray-400">
+    <div class="flex flex-col justify-center items-center rounded-2xl bg-white p-2 space-y-4 w-[90%]">
+      <CustomTestingComponent client:load />
+    </div>
+  </main>
 </Layout>
-  
-  <!-- url={import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_META_VENTA}  -->

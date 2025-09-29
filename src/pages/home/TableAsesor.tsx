@@ -23,7 +23,7 @@ interface ApiResponse {
     pageSizeOptions: number[];
 }
 
-const Componente_table_asesor = () => {
+const ComponenteTableAsesor = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_TABLE_ASESOR;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -59,4 +59,4 @@ const Componente_table_asesor = () => {
   )
 }
 
-export default Componente_table_asesor;
+export default ComponenteTableAsesor;

@@ -23,7 +23,7 @@ interface ApiResponse {
     pageSizeOptions: number[];
 }
 
-const Componente_table_pedidos = () => {
+const ComponenteTablePedidos = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_PEDIDOS_TABLE_PEDIDOS;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -57,4 +57,4 @@ const Componente_table_pedidos = () => {
   )
 }
 
-export default Componente_table_pedidos;
+export default ComponenteTablePedidos;

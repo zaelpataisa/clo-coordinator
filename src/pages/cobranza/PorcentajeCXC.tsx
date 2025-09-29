@@ -31,7 +31,7 @@ interface ApiResponse {
   }
 }
 
-const Componente_porcentaje_cxc = () => {
+const ComponentePorcentajeCXC = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_PORCENTAJE_CXC;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -78,4 +78,4 @@ const Componente_porcentaje_cxc = () => {
   );
 }
 
-export default Componente_porcentaje_cxc;
+export default ComponentePorcentajeCXC;

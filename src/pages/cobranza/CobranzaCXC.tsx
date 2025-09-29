@@ -30,7 +30,7 @@ interface ApiResponse {
     pageSizeOptions: number[];
 }
 
-const Componente_cobranza_cxc = () => {
+const ComponenteCobranzaCXC = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COBRANZA_COBRANZA_CXC;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -65,4 +65,4 @@ const Componente_cobranza_cxc = () => {
   )
 }
 
-export default Componente_cobranza_cxc;
+export default ComponenteCobranzaCXC;

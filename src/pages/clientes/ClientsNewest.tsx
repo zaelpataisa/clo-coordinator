@@ -13,7 +13,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_clients_newest = () => {
+const ComponenteClientsNewest = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_CLIENTES_CLIENTS_NEWEST;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -41,4 +41,4 @@ const Componente_clients_newest = () => {
   );
 }
 
-export default Componente_clients_newest;
+export default ComponenteClientsNewest;

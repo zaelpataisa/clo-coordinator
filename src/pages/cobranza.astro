@@ -5,10 +5,9 @@ import Header from "src/layouts/Header.astro";
 import { container_father } from '../utils/Containers';
 import ComponentFather from "src/components/ComponentFather.astro";
 
-import Componente_metas_cobr from "./cobranza/MetasCobr";
-import Componente_graphic_cobr_bs from "./cobranza/GraphicCobrBs";
-import Componente_graphic_cobr_ref from "./cobranza/GraphicCobrRef";
-import Componente_table_cobranza from "./cobranza/TableCobranza";
+import ComponenteMetasCobr from "./cobranza/MetasCobr";
+import ComponenteGraphicCobrRef from "./cobranza/GraphicCobrRef";
+import ComponenteTableCobranza from "./cobranza/TableCobranza";
 ---
 
 <Layout title="Cobranza - CLO">
@@ -30,7 +29,7 @@ import Componente_table_cobranza from "./cobranza/TableCobranza";
           title={"Cobranza realizada"}
           containerId={"cobranza_1-1"}
         >
-          <Componente_metas_cobr client:load />
+          <ComponenteMetasCobr client:load />
         </ComponentFather>
 
         <!-- Subcontainer 1.2: Cobranza (gráfico $) -->
@@ -38,7 +37,7 @@ import Componente_table_cobranza from "./cobranza/TableCobranza";
           title={"Cobranza realizada ($)"}
           containerId={"cobranza_1-2"}
         >
-          <Componente_graphic_cobr_ref client:load />
+          <ComponenteGraphicCobrRef client:load />
         </ComponentFather>
       </div>
 
@@ -49,7 +48,7 @@ import Componente_table_cobranza from "./cobranza/TableCobranza";
           title={"Detalle de cobranza"}
           containerId={"cobranza_2-1"}
         >
-          <Componente_table_cobranza client:load />
+          <ComponenteTableCobranza client:load />
         </ComponentFather>
       </div>
     </div>

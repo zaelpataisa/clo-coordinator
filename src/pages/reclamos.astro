@@ -5,9 +5,9 @@ import Header from "src/layouts/Header.astro";
 import { container_father } from '../utils/Containers';
 import ComponentFather from "src/components/ComponentFather.astro";
 
-import Componente_dttl_rclm_gnrl from './reclamos/DtllRclmGnrl'
-import Componente_graphic_rclm_gnrl from './reclamos/GraphicRclmGnrl'
-import Componente_table_reclamos from './reclamos/TableReclamos'
+import ComponenteDttlRclmGnrl from './reclamos/DtllRclmGnrl'
+import ComponenteGraphicRclmGnrl from './reclamos/GraphicRclmGnrl'
+import ComponenteTableReclamos from './reclamos/TableReclamos'
 ---
 
 <Layout title="Reclamos - CLO">
@@ -29,7 +29,7 @@ import Componente_table_reclamos from './reclamos/TableReclamos'
           title={"Detalle de reclamos generales"}
           containerId={"reclamos_1-1"}
         >
-          <Componente_dttl_rclm_gnrl client:load />
+          <ComponenteDttlRclmGnrl client:load />
         </ComponentFather>
         
         <!-- Subcontainer 1.2: Reclamos realizados por vendedor -->
@@ -37,7 +37,7 @@ import Componente_table_reclamos from './reclamos/TableReclamos'
           title={"Reclamos realizados por vendedor"}
           containerId={"reclamos_1-2"}
         >
-          <Componente_graphic_rclm_gnrl client:load />
+          <ComponenteGraphicRclmGnrl client:load />
         </ComponentFather>
       </div>
 
@@ -48,7 +48,7 @@ import Componente_table_reclamos from './reclamos/TableReclamos'
           title={"Detalle de reclamos por vendedor"}
           containerId={"reclamos_2-1"}
         >
-          <Componente_table_reclamos client:load />
+          <ComponenteTableReclamos client:load />
         </ComponentFather>
       </div>
     </div>

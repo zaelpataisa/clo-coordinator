@@ -5,9 +5,9 @@ import Header from "src/layouts/Header.astro";
 import { container_father } from '../utils/Containers';
 import ComponentFather from "src/components/ComponentFather.astro";
 
-import Componente_metas_venta_gnrl from "./facturacion/MetasVentaGnrl";
-import Componente_graphic_venta from "./facturacion/GraphicVenta";
-import Componente_table_facturacion from "./facturacion/TableFacturacion"
+import ComponenteMetasPddsGnrl from "./facturacion/MetasVentaGnrl";
+import ComponenteGraphicVenta from "./facturacion/GraphicVenta";
+import ComponenteTableFacturacion from "./facturacion/TableFacturacion"
 ---
 
 <Layout title="Facturación - CLO">
@@ -29,7 +29,7 @@ import Componente_table_facturacion from "./facturacion/TableFacturacion"
           title={"Meta de ventas general"}
           containerId={"facturacion_1-1"}
         >
-          <Componente_metas_venta_gnrl client:load />
+          <ComponenteMetasPddsGnrl client:load />
         </ComponentFather>
 
         <!-- Subcontainers 1.2: Facturación (gráfico) -->
@@ -37,7 +37,7 @@ import Componente_table_facturacion from "./facturacion/TableFacturacion"
           title={"Gráfico de ventas"}
           containerId={"facturacion_1-2"}
         >
-          <Componente_graphic_venta client:load />
+          <ComponenteGraphicVenta client:load />
         </ComponentFather>
       </div>
 
@@ -48,7 +48,7 @@ import Componente_table_facturacion from "./facturacion/TableFacturacion"
           title={"Detalle de facturación"}
           containerId={"facturacion_2-1"}
         >
-          <Componente_table_facturacion client:load />
+          <ComponenteTableFacturacion client:load />
         </ComponentFather>
       </div>
     </div>

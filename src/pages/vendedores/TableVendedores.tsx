@@ -22,7 +22,7 @@ interface ApiResponse {
   pageSizeOptions: number[];
 }
 
-const Componente_table_vendedores = () => {
+const ComponenteTableVendedores = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_VENDS_TABLE_VENDEDORES;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -56,4 +56,4 @@ const Componente_table_vendedores = () => {
   )
 }
 
-export default Componente_table_vendedores;
+export default ComponenteTableVendedores;

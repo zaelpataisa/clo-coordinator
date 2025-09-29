@@ -14,7 +14,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_graphic_rclm_gnrl = () => {
+const ComponenteGraphicRclmGnrl = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_RECLAMOS_GRAPHIC_RCLM_GNRL;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -46,4 +46,4 @@ const Componente_graphic_rclm_gnrl = () => {
   );
 }
 
-export default Componente_graphic_rclm_gnrl;
+export default ComponenteGraphicRclmGnrl;

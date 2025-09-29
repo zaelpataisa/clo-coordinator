@@ -23,7 +23,7 @@ interface ApiResponse {
   pageSizeOptions: number[];
 }
 
-const Componente_table_cobranza = () => {
+const ComponenteTableCobranza = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COBRANZA_TABLE_COBR;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -57,4 +57,4 @@ const Componente_table_cobranza = () => {
   )
 }
 
-export default Componente_table_cobranza;
+export default ComponenteTableCobranza;

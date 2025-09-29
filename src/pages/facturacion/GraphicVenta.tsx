@@ -14,7 +14,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_graphic_venta = () => {
+const ComponenteGraphicVenta = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_FACT_GRAPHIC_VENTA;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -42,4 +42,4 @@ const Componente_graphic_venta = () => {
   );
 }
 
-export default Componente_graphic_venta;
+export default ComponenteGraphicVenta;

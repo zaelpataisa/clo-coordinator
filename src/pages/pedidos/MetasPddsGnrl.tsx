@@ -17,7 +17,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_metas_pdds_gnrl = () => {
+const ComponenteMetasPddsGnrl = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_META_VENTA_GNRL;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -45,4 +45,4 @@ const Componente_metas_pdds_gnrl = () => {
   );
 }
 
-export default Componente_metas_pdds_gnrl;
+export default ComponenteMetasPddsGnrl;

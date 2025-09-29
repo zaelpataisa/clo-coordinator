@@ -13,6 +13,7 @@ export const useFetch = <T,>(url: string) => {
         throw new Error(`Error HTTP! ${response.status}`);
       }
       const result: T = await response.json();
+
       setData(result);
     } catch (error: unknown) {
       // console.error(`Error al obtener la BD: ${error}`);

@@ -13,7 +13,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_graphic_pdds_gnrl = () => {
+const ComponenteGraphicPdds_Gnrl = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_PEDIDOS_GRAPHIC_PDDS_GNRL;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -41,4 +41,4 @@ const Componente_graphic_pdds_gnrl = () => {
   );
 }
 
-export default Componente_graphic_pdds_gnrl;
+export default ComponenteGraphicPdds_Gnrl;

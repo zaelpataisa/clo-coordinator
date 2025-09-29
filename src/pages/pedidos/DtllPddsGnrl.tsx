@@ -13,7 +13,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_dttl_pdds_gnrl = () => {
+const ComponenteDttlPddsGnrl = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_PEDIDOS_DTTL_PDDS_GNRL;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -41,4 +41,4 @@ const Componente_dttl_pdds_gnrl = () => {
   );
 }
 
-export default Componente_dttl_pdds_gnrl;
+export default ComponenteDttlPddsGnrl;

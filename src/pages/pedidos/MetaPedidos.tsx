@@ -1,6 +1,7 @@
 import ChartGauge from "src/components/ChartGauge";
 import { useFetch } from "src/hooks/useFetch";
 import CircularProgress from '@mui/material/CircularProgress'; 
+import { formatNumber } from "src/utils/FormatNumbers";
 
 interface ApiResponse {
   minValue: number;
@@ -11,7 +12,7 @@ interface ApiResponse {
   porcentajeRestante: number;
 }
 
-const Componente_meta_pedidos = () => {
+const ComponenteMetaPedidos = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_META_VENTA;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -27,61 +28,37 @@ const Componente_meta_pedidos = () => {
 
   return (
     <>
-      {data && (
-        <ChartGauge
-          chartData={{
-            minValue: data.minValue,
-            value: data.value,
-            maxValue: data.maxValue,
-            colors: 'var(--colors-03)'
-          }}
-        />
-      )}
-
-      <div className="w-full grid grid-cols-2 gap-4 h-full">
-        <div className="flex flex-col justify-center items-center w-full">
-          <div className="flex flex-col justify-center items-center w-full">
-            <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
-              { data?.restante }
+      <div className="flex flex-col justify-center items-center space-y-6 w-[100%]">
+        <div className="flex justify-center items-center w-[100%]">
+          {data && (
+            <ChartGauge
+              chartData={{
+                minValue: data.minValue,
+                value: data.value,
+                maxValue: data.maxValue,
+                restante: data.restante,
+                porcentaje: data.porcentaje,
+                porcentajeRestante: data.porcentajeRestante,
+                colors: 'var(--colors-03)'
+              }}
+            />
+          )}
+        </div>
+        <div className="flex justify-center items-center w-[100%]">
+          <div className="flex flex-col justify-center items-center w-1/2 space-y-2">
+            <p className='font-bold text-[1.35rem] text-[var(--colors-03)]'>
+              Avance actual
             </p>
-            <p className='font-rFont font-bold text-[1rem] text-[var(--colors-03)]'>
-              Restante faltante
+            <p className='font-bold text-[1.5rem] text-[var(--colors-05)]'>
+              {formatNumber(data?.value)} $
             </p>
           </div>
-        </div>
-
-        {/* Avance (%) */}
-        <div className="flex flex-col justify-center items-center w-full">
-          <div className="flex flex-col justify-center items-center w-full">
-            <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
-              { data?.porcentaje }%
-            </p>
-            <p className='font-rFont font-bold text-[1rem] text-[var(--colors-03)]'>
-              Avance (%)
-            </p>
-          </div>
-        </div>
-
-        {/* Meta total */}
-        <div className="flex flex-col justify-center items-center w-full">
-          <div className="flex flex-col justify-center items-center w-full">
-            <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
-              { data?.maxValue }
-            </p>
-            <p className='font-rFont font-bold text-[1rem] text-[var(--colors-03)]'>
+          <div className="flex flex-col justify-center items-center w-1/2 space-y-2">
+            <p className='font-bold text-[1.35rem] text-[var(--colors-03)]'>
               Meta total
             </p>
-          </div>
-        </div>
-
-        {/* Restante (%) */}
-        <div className="flex flex-col justify-center items-center w-full">
-          <div className="flex flex-col justify-center items-center w-full">
-            <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
-              { data?.porcentajeRestante }%
-            </p>
-            <p className='font-rFont font-bold text-[1rem] text-[var(--colors-03)]'>
-              Restante (%)
+            <p className='font-bold text-[1.5rem] text-[var(--colors-05)]'>
+              {formatNumber(data?.maxValue)} $
             </p>
           </div>
         </div>
@@ -90,4 +67,4 @@ const Componente_meta_pedidos = () => {
   );
 }
 
-export default Componente_meta_pedidos;
+export default ComponenteMetaPedidos;

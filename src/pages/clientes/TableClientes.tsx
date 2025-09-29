@@ -22,7 +22,7 @@ interface ApiResponse {
   pageSizeOptions: number[];
 }
 
-const Componente_table_clientes = () => {
+const ComponenteTableClientes = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_CLIENTES_TABLE_CLIENTES;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -56,4 +56,4 @@ const Componente_table_clientes = () => {
   )
 }
 
-export default Componente_table_clientes;
+export default ComponenteTableClientes;

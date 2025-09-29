@@ -7,20 +7,19 @@ import ComponentFather from "src/components/ComponentFather.astro";
 
 
 // Ventas - Facturación
-import Componente_meta_pedidos from './pedidos/MetaPedidos';
-import Componente_metas_pdds_gnrl from './pedidos/MetasPddsGnrl'
-import Componente_graphic_pedidos from './pedidos/GraphicPedidos'
-import Componente_cartera_pedidos from './pedidos/CarteraPedidos'
+import ComponenteMetaPedidos from './pedidos/MetaPedidos';
+import ComponenteMetasPddsGnrl from './pedidos/MetasPddsGnrl'
+import ComponenteGraphicPedidos from './pedidos/GraphicPedidos'
+import ComponenteCarteraPedidos from './pedidos/CarteraPedidos'
 // Cobranza
-import Componente_metas_cobr from './cobranza/MetasCobr'
-import Componente_graphic_cobr_bs from './cobranza/GraphicCobrBs'
-import Componente_graphic_cobr_ref from './cobranza/GraphicCobrRef'
-import Componente_cobranza_cxc from './cobranza/CobranzaCXC'
+import ComponenteMetasCobr from './cobranza/MetasCobr'
+import ComponenteGraphicCobrRef from './cobranza/GraphicCobrRef'
+import ComponenteCobranzaCXC from './cobranza/CobranzaCXC'
 // Asesores
-import Componente_porcentaje_cxc from './cobranza/PorcentajeCXC'
-import Componente_table_asesor from './home/TableAsesor'
-import Componente_table_days_detail from './home/TableDaysDetail'
-import Componente_graphic_analysis from './home/GraphicAnalysis'
+import ComponentePorcentajeCXC from './cobranza/PorcentajeCXC'
+import ComponenteTableAsesor from './home/TableAsesor'
+import ComponenteTableDaysDetail from './home/TableDaysDetail'
+import ComponenteGraphicAnalysis from './home/GraphicAnalysis'
 
 ---
 
@@ -44,7 +43,7 @@ import Componente_graphic_analysis from './home/GraphicAnalysis'
           containerId={"home_1-1"} 
           urlBtnText={"/pedidos"}
         >
-          <Componente_meta_pedidos client:load />
+          <ComponenteMetaPedidos client:load />
         </ComponentFather>
 
         <!-- Subcontainer 1.2: Meta de ventas general -->
@@ -53,7 +52,7 @@ import Componente_graphic_analysis from './home/GraphicAnalysis'
           containerId={"home_1-2"}
           urlBtnText={"/pedidos"}
         >
-          <Componente_metas_pdds_gnrl client:load />
+          <ComponenteMetasPddsGnrl client:load />
         </ComponentFather>
 
         <!-- Subcontainer 1.3: Ventas (pedido) -->
@@ -62,16 +61,16 @@ import Componente_graphic_analysis from './home/GraphicAnalysis'
           containerId={"home_1-3"}
           urlBtnText={"/pedidos"}
         >
-          <Componente_graphic_pedidos client:load />
+          <ComponenteGraphicPedidos client:load />
         </ComponentFather>
 
         <!-- Subcontainer 1.4: Cartera -->
         <ComponentFather
           title={"Cartera"}
           containerId={"home_1-4"}
-          urlBtnText={""}
+          urlBtnText={"/clientes"}
         >
-          <Componente_cartera_pedidos client:load />
+          <ComponenteCarteraPedidos client:load />
         </ComponentFather>
       </div>
 
@@ -83,34 +82,25 @@ import Componente_graphic_analysis from './home/GraphicAnalysis'
           containerId={"home_2-1"}
           urlBtnText={"/cobranza"}
         >
-          <Componente_metas_cobr client:load />
+          <ComponenteMetasCobr client:load />
         </ComponentFather>
-        
-        <!-- Subcontainer 2.2: Cobranza (gráfico Bs) -->
+                
+        <!-- Subcontainer 2.2: Cobranza (gráfico $) -->
         <ComponentFather
-          title={"Cobranza realizada (Bolivares)"}
+          title={"Cobranza realizada ($)"}
           containerId={"home_2-2"}
           urlBtnText={"/cobranza"}
         >
-          <Componente_graphic_cobr_bs client:load />
+          <ComponenteGraphicCobrRef client:load />
         </ComponentFather>
         
-        <!-- Subcontainer 2.3: Cobranza (gráfico $) -->
+        <!-- Subcontainer 2.3: Cobranza por día -->
         <ComponentFather
-          title={"Cobranza realizada ($)"}
+          title={"Cobranza por día"}
           containerId={"home_2-3"}
           urlBtnText={"/cobranza"}
         >
-          <Componente_graphic_cobr_ref client:load />
-        </ComponentFather>
-        
-        <!-- Subcontainer 2.4: Cobranza por día -->
-        <ComponentFather
-          title={"Cobranza por día"}
-          containerId={"home_2-4"}
-          urlBtnText={"/cobranza"}
-        >
-          <Componente_cobranza_cxc client:load />
+          <ComponenteCobranzaCXC client:load />
         </ComponentFather>
       </div>
 
@@ -122,7 +112,7 @@ import Componente_graphic_analysis from './home/GraphicAnalysis'
           containerId={"home_3-1"}
           urlBtnText={"/cobranza"}
         >
-          <Componente_porcentaje_cxc client:load />
+          <ComponentePorcentajeCXC client:load />
         </ComponentFather>
         
         <!-- Subcontainer 3.2: Detalles por vendedor -->
@@ -131,7 +121,7 @@ import Componente_graphic_analysis from './home/GraphicAnalysis'
           containerId={"home_3-2"}
           urlBtnText={"/vendedores"}
         >
-          <Componente_table_asesor client:load />
+          <ComponenteTableAsesor client:load />
         </ComponentFather>
         
         <!-- Subcontainer 3.3: Detalle por día -->
@@ -140,7 +130,7 @@ import Componente_graphic_analysis from './home/GraphicAnalysis'
           containerId={"home_3-3"}
           urlBtnText={""}
         >
-          <Componente_table_days_detail client:load />
+          <ComponenteTableDaysDetail client:load />
         </ComponentFather>
         
         <!-- Subcontainer 3.4: Análisis gráfico  -->
@@ -149,7 +139,7 @@ import Componente_graphic_analysis from './home/GraphicAnalysis'
           containerId={"home_3-4"}
           urlBtnText={""}
         >
-          <Componente_graphic_analysis client:load />
+          <ComponenteGraphicAnalysis client:load />
         </ComponentFather>
       </div>
     </div>

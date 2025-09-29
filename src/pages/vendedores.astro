@@ -5,12 +5,11 @@ import Header from "src/layouts/Header.astro";
 import { container_father } from '../utils/Containers';
 import ComponentFather from "src/components/ComponentFather.astro";
 
-import Componente_table_vendedores from './vendedores/TableVendedores'
-import Componente_graphic_fact_pdds_vend from './vendedores/GraphicFactPdds_vend'
-import Componente_table_fact_pdds_vend from './vendedores/TableFactPddsVend'
-import Componente_graphic_cobr_bs from './vendedores/GraphicCobrBs'
-import Componente_graphic_cobr_ref from './vendedores/GraphicCobrRef'
-import Componente_table_cobr_vend from './vendedores/TableCobrVend'
+import ComponenteTableVendedores from './vendedores/TableVendedores'
+import ComponenteGraphicFactPddsVend from './vendedores/GraphicFactPdds_vend'
+import ComponenteTableFactPddsVend from './vendedores/TableFactPddsVend'
+import ComponenteGraphicCobrRef from './vendedores/GraphicCobrRef'
+import ComponenteTableCobrVend from './vendedores/TableCobrVend'
 ---
 
 <Layout title="Vendedores - CLO">
@@ -32,7 +31,7 @@ import Componente_table_cobr_vend from './vendedores/TableCobrVend'
           title={"Detalle general de vendedores"}
           containerId={"vendedores_1-1"}
         >
-          <Componente_table_vendedores client:load />
+          <ComponenteTableVendedores client:load />
         </ComponentFather> 
       </div>
 
@@ -43,7 +42,7 @@ import Componente_table_cobr_vend from './vendedores/TableCobrVend'
           title={"Detalle de clientes por vendedor"}
           containerId={"vendedores_2-1"}
         >
-          <Componente_graphic_fact_pdds_vend client:load />
+          <ComponenteGraphicFactPddsVend client:load />
         </ComponentFather> 
 
         <!-- Subcontainer 2.2: Histórico de pedidos y facturas -->
@@ -51,7 +50,7 @@ import Componente_table_cobr_vend from './vendedores/TableCobrVend'
           title={"Histórico de pedidos y facturas"}
           containerId={"vendedores_2-2"}
         >
-          <Componente_table_fact_pdds_vend client:load />
+          <ComponenteTableFactPddsVend client:load />
         </ComponentFather> 
       </div>
 
@@ -62,7 +61,7 @@ import Componente_table_cobr_vend from './vendedores/TableCobrVend'
           title={"Cantidad de cobranzas ($)"}
           containerId={"vendedores_3-1"}
         >
-          <Componente_graphic_cobr_ref client:load />
+          <ComponenteGraphicCobrRef client:load />
         </ComponentFather> 
 
         <!-- Subcontainer 3.2: Histórico de cobranza -->
@@ -70,7 +69,7 @@ import Componente_table_cobr_vend from './vendedores/TableCobrVend'
           title={"Histórico de cobranza"}
           containerId={"vendedores_3-2"}
         >
-          <Componente_table_cobr_vend client:load />
+          <ComponenteTableCobrVend client:load />
         </ComponentFather> 
       </div>
     </div>

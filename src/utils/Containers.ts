@@ -21,14 +21,13 @@ const c_w1y2_w1_2 = "w-1/1 md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2";
 
 export const c_config = {
   // Containers - Home
-  'home_1-1':        c_w1y2_w1_2,
-  'home_1-2':        c_w1y2_w1_2,
-  'home_1-3':        c_w1y2_w1_2,
-  'home_1-4':        c_w1y2_w1_2,
-  'home_2-1':        c_w1y3_w1_2,
-  'home_2-2':        c_w1y3_w1_2,
-  'home_2-3':        c_w1y3_w1_2,
-  'home_2-4':        c_w1y1_w1_1,
+  'home_1-1':        c_w1y1_w1_3,
+  'home_1-2':        c_w1y1_w1_3,
+  'home_1-3':        c_w1y1_w1_3,
+  'home_1-4':        c_w1y1_w1_1,
+  'home_2-1':        c_w1y2_w1_2,
+  'home_2-2':        c_w1y2_w1_2,
+  'home_2-3':        c_w1y1_w1_1,
   'home_3-1':        c_w1y4_w1_2,
   'home_3-2':        c_w3y4_w1_2,
   'home_3-3':        c_w1y4_w1_2,

@@ -5,9 +5,9 @@ import Header from "src/layouts/Header.astro";
 import { container_father } from '../utils/Containers';
 import ComponentFather from "src/components/ComponentFather.astro";
 
-import Componente_clients_actives from './clientes/ClientsActives'
-import Componente_clients_newest from './clientes/ClientsNewest'
-import Componente_table_clientes from './clientes/TableClientes'
+import ComponenteClientsActives from './clientes/ClientsActives'
+import ComponenteClientsNewest from './clientes/ClientsNewest'
+import ComponenteTableClientes from './clientes/TableClientes'
 ---
 
 <Layout title="Clientes - CLO">
@@ -29,7 +29,7 @@ import Componente_table_clientes from './clientes/TableClientes'
           title={"Clientes activos en el mes"}
           containerId={"clientes_1-1"}
         >
-          <Componente_clients_actives client:load />
+          <ComponenteClientsActives client:load />
         </ComponentFather>
 
         <!-- Subcontainer 1.2: Clientes nuevos en el mes -->
@@ -37,7 +37,7 @@ import Componente_table_clientes from './clientes/TableClientes'
           title={"Clientes nuevos en el mes"}
           containerId={"clientes_1-2"}
         >
-          <Componente_clients_newest client:load />
+          <ComponenteClientsNewest client:load />
         </ComponentFather>
       </div>
 
@@ -48,7 +48,7 @@ import Componente_table_clientes from './clientes/TableClientes'
           title={"Detalle de clientes por vendedor"}
           containerId={"clientes_2-1"}
         >
-          <Componente_table_clientes client:load />
+          <ComponenteTableClientes client:load />
         </ComponentFather>
       </div>
     </div>

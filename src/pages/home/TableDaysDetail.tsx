@@ -25,7 +25,7 @@ interface ApiResponse {
     pageSizeOptions: number[];
 }
 
-const Componente_table_days_detail = () => {
+const ComponenteTableDaysDetail = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_DAYS_DETAIL;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -60,4 +60,4 @@ const Componente_table_days_detail = () => {
   )
 }
 
-export default Componente_table_days_detail;
+export default ComponenteTableDaysDetail;

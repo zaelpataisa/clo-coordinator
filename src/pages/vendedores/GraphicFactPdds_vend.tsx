@@ -14,7 +14,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_graphic_fact_pdds_vend = () => {
+const ComponenteGraphicFactPddsVend = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_VENDS_TABLE_FACT_PDDS_VEND;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -42,4 +42,4 @@ const Componente_graphic_fact_pdds_vend = () => {
   );
 }
 
-export default Componente_graphic_fact_pdds_vend;
+export default ComponenteGraphicFactPddsVend;

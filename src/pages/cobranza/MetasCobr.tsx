@@ -17,7 +17,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_metas_cobr = () => {
+const ComponenteMetasCobr = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COBRANZA_COBR;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -44,4 +44,4 @@ const Componente_metas_cobr = () => {
   );
 }
 
-export default Componente_metas_cobr;
+export default ComponenteMetasCobr;

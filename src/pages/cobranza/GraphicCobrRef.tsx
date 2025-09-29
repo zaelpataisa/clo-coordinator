@@ -14,7 +14,7 @@ interface ApiResponse {
   }[];
 }
 
-const Componente_graphic_cobr_ref = () => {
+const ComponenteGraphicCobrRef = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COBRANZA_GRAPHIC_COBR_REF;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
@@ -42,4 +42,4 @@ const Componente_graphic_cobr_ref = () => {
   );
 }
 
-export default Componente_graphic_cobr_ref;
+export default ComponenteGraphicCobrRef;
