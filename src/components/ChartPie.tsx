@@ -11,7 +11,7 @@ interface ChartDataItem {
 interface DataProps {
   data_text: string[];
   data_values: number[];
-  data_colors: string[];
+  data_colors?: string[];
 }
 
 const ChartPie = ({ data_text, data_values, data_colors }: DataProps) => {
@@ -19,7 +19,7 @@ const ChartPie = ({ data_text, data_values, data_colors }: DataProps) => {
     id: index, 
     label: text,
     value: data_values[index], 
-    color: data_colors[index],
+    color: data_colors?.[index] ?? '#cccccc',
   }));
 
   const totalGlobal = chartData.reduce((sum: number, item: any) => sum + item.value, 0);

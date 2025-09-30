@@ -58,7 +58,7 @@ const ComponentePorcentajeCXC = () => {
           {data.query && (
             <ChartBar_02 
               chartData={data.query}
-              label={"Porcentaje"}
+              label={"Cifra"}
               yAxisConfig={{opacity: 0, disableLine: true, disableTicks: true}}
             />
           )}
@@ -68,7 +68,7 @@ const ComponentePorcentajeCXC = () => {
           {data.query2 && (
             <ChartBar_02 
               chartData={data.query2}
-              label={"Porcentaje"}
+              label={"Cifra"}
               yAxisConfig={{opacity: 0, disableLine: true, disableTicks: true}}
             />
           )}

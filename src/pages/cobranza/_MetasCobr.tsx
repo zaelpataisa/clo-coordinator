@@ -22,8 +22,8 @@ const ComponenteMetasCobr = () => {
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
-    return (
-       <CircularProgress />
+  return (
+      <CircularProgress />
     );
   }
 
@@ -36,7 +36,7 @@ const ComponenteMetasCobr = () => {
       {data && (
         <ChartBar_02
           chartData={data}
-          label={"Cobranza por día"}
+          label={"Cantidad"}
           yAxisConfig={{opacity: 1, disableLine: false, disableTicks: false}}
         />
       )}

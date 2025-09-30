@@ -1,16 +1,14 @@
 import { useFetch } from "src/hooks/useFetch";
-import { getLocalStorageData } from "src/utils/GetLocalStorageData";
 import CircularProgress from '@mui/material/CircularProgress';
-
-import ChartBar_01 from "src/components/ChartBar_01";
+import ChartBar_03 from "src/components/ChartBar03";
 
 interface ApiResponse {
   id: string;
-  xAxisData: string[];
-  seriesData: {
-    data: number[];
-    color: string;
+  data: {
+    yDataKey: string;
+    xDataKey: number;
   }[];
+  color: string;
 }
 
 const ComponenteDttlRclmGnrl = () => {
@@ -27,16 +25,25 @@ const ComponenteDttlRclmGnrl = () => {
   if (error) {
     return <p>Error al obtener los datos: {error}</p>;
   }
+  if (!data) {
+    return <p>Error al obtener los datos: {error}</p>;
+  }
 
   return (
     <>
-      {data && (
-        <ChartBar_01 
-          chartData={data}
-          label={"Cantidad"}
-          yAxisConfig={{opacityTickLabel: 0, disableLine: true, disableTicks: true}}
+        <ChartBar_03
+          dataset={data.data}
+          yDataKey="yDataKey"
+          xDataKey="xDataKey"
+          label="Cantidad"
+          selectedColor={data.color}
+          textSymbol=""
+          yAxisConfig={{
+            opacityTickLabel: 1,
+            disableLine: false,
+            disableTicks: false,
+          }}
         />
-      )}
     </>
   );
 }

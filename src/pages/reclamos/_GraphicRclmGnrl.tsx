@@ -1,17 +1,12 @@
 import { useFetch } from "src/hooks/useFetch";
-import { getLocalStorageData } from "src/utils/GetLocalStorageData";
 import CircularProgress from '@mui/material/CircularProgress';
-
-import ChartBar_01 from "src/components/ChartBar_01";
+import Box from '@mui/material/Box';
+import ChartPie from "src/components/ChartPie";
 
 interface ApiResponse {
   id: string;
-  xAxisData: string[];
-  seriesData: {
-      data: number[];
-      label: string;
-      color: string;
-  }[];
+  pie_data: string[];
+  series_data: number[];
 }
 
 const ComponenteGraphicRclmGnrl = () => {
@@ -35,13 +30,15 @@ const ComponenteGraphicRclmGnrl = () => {
 
   return (
     <>
-      {data && (
-        <ChartBar_01 
-          chartData={data}
-          label={"Cantidad"}
-          yAxisConfig={{opacityTickLabel: 0, disableLine: true, disableTicks: true}}
+      <Box>
+        <ChartPie 
+          data_text={data.pie_data}
+          data_values={data.series_data}
+          data_colors={
+            data.series_data.map(() => 'var(--colors-03_50)')
+          }
         />
-      )}
+      </Box>
     </>
   );
 }

@@ -33,7 +33,7 @@ const ComponenteGraphicAnalysis = () => {
     <>
       {data && (
         <ChartLine_01
-          label={'Cantidad'}
+          label={'Cifra'}
           chartData={data}
           yAxisConfig={{opacity: 1, disableLine: false}}
           lineDesign={{area: false}}
