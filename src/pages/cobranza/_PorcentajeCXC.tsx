@@ -1,8 +1,6 @@
 import { useFetch } from "src/hooks/useFetch";
-import { getLocalStorageData } from "src/utils/GetLocalStorageData";
-import CircularProgress from '@mui/material/CircularProgress';
-
 import ChartBar_02 from "src/components/ChartBar_02";
+import LoadingCircle from "src/components/LoadingCircle";
 
 interface ApiResponse {
   query: {
@@ -37,9 +35,8 @@ const ComponentePorcentajeCXC = () => {
 
   if (isLoading) {
     return (
-        <CircularProgress />
-      );
-    ;
+      <LoadingCircle />
+    );
   }
 
   if (error) {

@@ -1,7 +1,7 @@
 import { useFetch } from "src/hooks/useFetch";
-import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import ChartPie from "src/components/ChartPie";
+import LoadingCircle from "src/components/LoadingCircle";
 
 interface ApiResponse {
   c_total: number;
@@ -19,7 +19,7 @@ const ComponenteCarteraPedidos = () => {
 
   if (isLoading) {
     return (
-      <CircularProgress />
+      <LoadingCircle/>
     );
   }
 

@@ -1,6 +1,7 @@
 import { useFetch } from "src/hooks/useFetch";
 import CircularProgress from '@mui/material/CircularProgress';
 import ChartBar_03 from "src/components/ChartBar03";
+import LoadingCircle from "src/components/LoadingCircle";
 
 interface ApiResponse {
   id: string;
@@ -17,7 +18,7 @@ const ComponenteDttlRclmGnrl = () => {
 
   if (isLoading) {
     return (
-        <CircularProgress />
+      <LoadingCircle />
       );
     ;
   }

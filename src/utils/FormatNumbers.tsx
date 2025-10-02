@@ -1,13 +1,16 @@
+const numberFormatter = new Intl.NumberFormat('es-ES', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+  useGrouping: true, 
+});
 
 export function formatNumber(num: number | null | undefined): string {
   if (num === null || num === undefined) {
     return 'N/A';
   }
-  
-  const formatter = new Intl.NumberFormat('es-ES', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  return numberFormatter.format(num);
+}
 
-  return formatter.format(num);
+export function formatEuropeanNumber(value: string): number {
+  return parseFloat(value.replace(/\./g, '').replace(',', '.'));
 }

@@ -1,6 +1,9 @@
 import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box'; 
+import Typography from '@mui/material/Typography';
 import { useFetch } from 'src/hooks/useFetch';
 import { Tables } from "src/components/Tables"
+import { TableModalWrapper } from '../components/TableModalWrapper';
 
 interface TotalesData {
   total_cxc: number;
@@ -20,32 +23,53 @@ interface TotalesData {
 
 export type { TotalesData };
 
+type RowType = {
+  id: number;
+  vendedor: string;
+  cxc: string;
+  vence_no: string;
+  vence_no_p: string;
+  t_coord_p: string;
+  vence: string;
+  vence_p: string;
+  t_vence_p: string;
+  v_0: string;
+  v_1_5: string;
+  v_6_10: string;
+  v_11_15: string;
+  v_16_21: string;
+  v_21: string;
+};
+
 interface ApiResponse {
   columns: {
     field: string;
     headerName: string;
     flex: number;
   }[];
-  rows: {
-    id: number;
-    vendedor: string;
-    cxc: string;
-    vence_no: string;
-    vence_no_p: string;
-    t_coord_p: string;
-    vence: string;
-    vence_p: string;
-    t_vence_p: string;
-    v_0: string;
-    v_1_5: string;
-    v_6_10: string;
-    v_11_15: string;
-    v_16_21: string;
-    v_21: string;
-  }[];
+  rows: RowType[];
   pageSizeOptions: number[];
   totales: TotalesData;
 }
+
+const RowDetailContent: React.FC<{ rowData: RowType }> = ({ rowData }) => {
+  return (
+    <Box>
+      {Object.entries(rowData).map(([key, value]) => {
+        if (key === 'id') return null; 
+
+        return (
+          <Typography key={key} variant="body2" sx={{ my: 0.5 }}>
+            <span style={{ fontWeight: 'bold', textTransform: 'capitalize' }}>
+                {key.replace(/_/g, ' ')}:
+            </span>{' '}
+            {String(value)}
+          </Typography>
+        );
+      })}
+    </Box>
+  );
+};
 
 const CustomTestingComponent = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COBRANZA_COBRANZA_CXC;
@@ -67,17 +91,19 @@ const CustomTestingComponent = () => {
 
   return (
     <>
-      <Tables
-          rows={data.rows}
-          columns={data.columns}
-          totales={data.totales}
-          initialState={{
-              pagination: {
-                  paginationModel:
-                  { page: 0, pageSize: data.columns.length }
-              }
-          }}
-          pageSizeOptions={data.pageSizeOptions}
+      <TableModalWrapper<RowType> 
+        rows={data.rows}
+        columns={data.columns}
+        totales={data.totales}
+        initialState={{
+          pagination: {
+            paginationModel:
+            { page: 0, pageSize: data.columns.length }
+          }
+        }}
+        pageSizeOptions={data.pageSizeOptions}
+        modalTitle={"Cobranza por día"}
+        renderModalContent={(rowData) => <RowDetailContent rowData={rowData} />}
       />
     </>
   );

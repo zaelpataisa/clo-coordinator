@@ -1,15 +1,15 @@
 import ChartGauge from "src/components/ChartGauge";
 import { useFetch } from "src/hooks/useFetch";
-import CircularProgress from '@mui/material/CircularProgress'; 
-import { formatNumber } from "src/utils/FormatNumbers";
+import { formatEuropeanNumber } from "src/utils/FormatNumbers";
+import LoadingCircle from "src/components/LoadingCircle";
 
 interface ApiResponse {
-  minValue: number;
-  value: number;
-  maxValue: number;
-  restante: number;
-  porcentaje: number;
-  porcentajeRestante: number;
+  minValue: string;
+  value: string;
+  maxValue: string;
+  restante: string;
+  porcentaje: string;
+  porcentajeRestante: string;
 }
 
 const ComponenteMetaPedidos = () => {
@@ -18,11 +18,14 @@ const ComponenteMetaPedidos = () => {
 
   if (isLoading) {
     return (
-      <CircularProgress />
+      <LoadingCircle />
     );
   }
 
   if (error) {
+    return <p>Error al obtener los datos: {error}</p>;
+  }
+  if (!data) {
     return <p>Error al obtener los datos: {error}</p>;
   }
 
@@ -30,19 +33,19 @@ const ComponenteMetaPedidos = () => {
     <>
       <div className="flex flex-col justify-center items-center space-y-6 w-[100%]">
         <div className="flex justify-center items-center w-[100%]">
-          {data && (
+            {data && (
             <ChartGauge
               chartData={{
-                minValue: data.minValue,
-                value: data.value,
-                maxValue: data.maxValue,
-                restante: data.restante,
-                porcentaje: data.porcentaje,
-                porcentajeRestante: data.porcentajeRestante,
+                minValue:  formatEuropeanNumber(data.minValue),
+                value:  formatEuropeanNumber(data.value),
+                maxValue:  formatEuropeanNumber(data.maxValue),
+                restante:  formatEuropeanNumber(data.restante),
+                porcentaje:  formatEuropeanNumber(data.porcentaje),
+                porcentajeRestante:  formatEuropeanNumber(data.porcentajeRestante),
                 colors: 'var(--colors-03)'
               }}
             />
-          )}
+            )}
         </div>
         <div className="flex justify-center items-center w-[100%]">
           <div className="flex flex-col justify-center items-center w-1/2 space-y-2">
@@ -50,7 +53,7 @@ const ComponenteMetaPedidos = () => {
               Avance actual
             </p>
             <p className='font-bold text-[1.5rem] text-[var(--colors-05)]'>
-              {formatNumber(data?.value)} $
+              {data?.value} $
             </p>
           </div>
           <div className="flex flex-col justify-center items-center w-1/2 space-y-2">
@@ -58,7 +61,7 @@ const ComponenteMetaPedidos = () => {
               Meta total
             </p>
             <p className='font-bold text-[1.5rem] text-[var(--colors-05)]'>
-              {formatNumber(data?.maxValue)} $
+              {data?.maxValue} $
             </p>
           </div>
         </div>

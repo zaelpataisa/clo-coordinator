@@ -1,8 +1,6 @@
 import { useFetch } from "src/hooks/useFetch";
-import { getLocalStorageData } from "src/utils/GetLocalStorageData";
-import CircularProgress from '@mui/material/CircularProgress';
-
 import { Tables } from "src/components/Tables"
+import LoadingCircle from "src/components/LoadingCircle";
 
 interface ApiResponse {
   columns: {
@@ -29,7 +27,7 @@ const ComponenteTableCobranza = () => {
 
   if (isLoading) {
     return (
-       <CircularProgress />
+      <LoadingCircle />
     );
   }
 

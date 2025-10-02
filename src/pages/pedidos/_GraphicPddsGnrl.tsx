@@ -1,8 +1,6 @@
 import { useFetch } from "src/hooks/useFetch";
-import { getLocalStorageData } from "src/utils/GetLocalStorageData";
-import CircularProgress from '@mui/material/CircularProgress';
-
 import ChartBar_01 from "src/components/ChartBar_01";
+import LoadingCircle from "src/components/LoadingCircle";
 
 interface ApiResponse {
   id: string;
@@ -19,7 +17,7 @@ const ComponenteGraphicPdds_Gnrl = () => {
 
   if (isLoading) {
     return (
-        <CircularProgress />
+      <LoadingCircle />
       );
     ;
   }
