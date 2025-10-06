@@ -3,13 +3,14 @@ import type { GridColDef } from '@mui/x-data-grid';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-interface CustomFooterProps<T extends Record<string, number>> {
+interface CustomFooterProps<T extends Record<string, string | number>> {
   totales: T; 
   columns: GridColDef<any>[]; 
   totalsPrefix?: string;
 }
 
-const CustomTableFooter = <T extends Record<string, number>>({ 
+
+const CustomTableFooter = <T extends Record<string, string | number>>({ 
     totales, 
     columns, 
     totalsPrefix = 'total_',
@@ -44,7 +45,7 @@ const CustomTableFooter = <T extends Record<string, number>>({
   
   const dynamicTotalsOrder = Object.keys(totales) as (keyof T)[];
   
-  const formatTotalValue = (key: keyof T, value: number): string => {
+  const formatTotalValue = (key: keyof T, value: string | number): string => {
     if (String(key).includes('_p')) {
       return `${value}%`; 
     }
@@ -60,7 +61,7 @@ const CustomTableFooter = <T extends Record<string, number>>({
     .join(' ');
 
   const totalsMap = new Map<string, { header: string, value: string }>();
-  
+
   dynamicTotalsOrder.forEach(key => {
     const keyString = String(key);
     const fieldNameInColumns = keyString.startsWith(totalsPrefix) 
@@ -85,8 +86,7 @@ const CustomTableFooter = <T extends Record<string, number>>({
       sx={{
         display: 'grid',
         gridTemplateColumns: finalGridTemplate, 
-        // Estilos...
-        height: 52, 
+        height: '6rem', 
         backgroundColor: 'var(--colors-07)',
         borderTop: '1px solid var(--colors-04)',
         fontWeight: 'bold',
@@ -103,7 +103,7 @@ const CustomTableFooter = <T extends Record<string, number>>({
         paddingLeft: '14px', 
         justifyContent: 'flex-start',
       }}>
-        <Typography variant="subtitle1" className='text-[var(--colors-03)]' sx={{ fontWeight: 'bold' }}>
+        <Typography className='text-[var(--colors-03)]' sx={{ fontWeight: 'bold' }}>
             TOTALES
         </Typography>
       </Box>

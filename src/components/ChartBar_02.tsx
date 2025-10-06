@@ -97,6 +97,7 @@ const ChartBar_02 = ({ chartData, label, yAxisConfig }: DataProps) => {
     return (
         <div className="h-full w-full overflow-auto">
             <BarChart
+                height={350}
                 xAxis={[{
                     id: chartData.id,
                     data: chartData.xAxisData[0].data,

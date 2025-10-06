@@ -1,6 +1,6 @@
 import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 import { styled } from '@mui/material/styles';
-import { formatNumber } from '../utils/FormatNumbers';
+import { formatNumber } from '../utils/FormattingFunctions';
 
 const StyledText = styled('text')(({ theme }) => ({
   textAnchor: 'middle',

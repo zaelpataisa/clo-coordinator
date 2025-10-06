@@ -1,22 +1,25 @@
 import { useFetch } from "src/hooks/useFetch";
 import LoadingCircle from "src/components/LoadingCircle";
-
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { TableModalWrapper } from "src/components/TableModalWrapper";
+import type { GridColDef } from '@mui/x-data-grid';
+import CustomTableFooter from "src/components/CustomTableFooter"; 
+
+interface TotalesData {
+  [key: string]: number;
+  total_fact: number;
+  total_cobr: number;
+}
 
 type RowType = {
   id: number;
-  asesor: string;
-  fact_meta: string;
-  fact: string;
-  fact_rest: string;
-  fact_percent: string;
-  meta_cobr: string;
-  cobr: string;
-  cobr_rest: string;
-  cobr_percent: string;
-};
+  days: string;
+  fact: number;
+  cobr: number;
+}[];
+
+type SingleRowType = RowType[number];
 
 interface ApiResponse {
   columns: {
@@ -24,39 +27,10 @@ interface ApiResponse {
     headerName: string;
     flex: number;
   }[];
-  rows: {
-    id: number;
-    asesor: string;
-    fact_meta: string;
-    fact: string;
-    fact_rest: string;
-    fact_percent: string;
-    meta_cobr: string;
-    cobr: string;
-    cobr_rest: string;
-    cobr_percent: string;
-  }[];
+  rows: SingleRowType[];
   pageSizeOptions: number[];
+  totales: TotalesData;
 }
-
-const RowDetailContent: React.FC<{ rowData: RowType }> = ({ rowData }) => {
-  return (
-    <Box>
-      {Object.entries(rowData).map(([key, value]) => {
-        if (key === 'id') return null; 
-
-        return (
-          <Typography key={key} variant="body2" sx={{ my: 0.5 }}>
-            <span style={{ fontWeight: 'bold', textTransform: 'capitalize' }}>
-                {key.replace(/_/g, ' ')}:
-            </span>{' '}
-            {String(value)}
-          </Typography>
-        );
-      })}
-    </Box>
-  );
-};
 
 const ComponenteTableDaysDetail = () => {
   const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_DAYS_DETAIL;
@@ -75,20 +49,47 @@ const ComponenteTableDaysDetail = () => {
     return <p>Error al obtener los datos: {error}</p>;
   }
 
+  const RowDetailContent: React.FC<{ rowData: SingleRowType }> = ({ rowData }) => {
+  return (
+    <Box>
+      {Object.entries(rowData).map(([key, value]) => {
+        if (key === 'id') return null; 
+
+        return (
+          <Typography key={key} variant="body2" sx={{ my: 0.5 }}>
+            <span style={{ fontWeight: 'bold', textTransform: 'capitalize' }}>
+                {key.replace(/_/g, ' ')}:
+            </span>{' '}
+            {String(value)}
+          </Typography>
+        );
+      })}
+    </Box>
+  );
+};
+  const cobranzaFooter = (
+    <CustomTableFooter 
+      totales={data.totales} 
+      columns={data.columns as GridColDef<any>[]} 
+      totalsPrefix="total_" 
+    />
+  );
+
   return (
     <>
-      <TableModalWrapper<RowType> 
-        rows={data.rows}
-        columns={data.columns}
+      <TableModalWrapper<SingleRowType> 
+        rows={data.rows as SingleRowType[]}
+        columns={data.columns as GridColDef<RowType[number]>[]}
         initialState={{
           pagination: {
             paginationModel:
-            { page: 0, pageSize: 31 }
+            { page: 0, pageSize: data.rows.length }
           }
         }}
         pageSizeOptions={data.pageSizeOptions}
-        modalTitle={"Detalles por día"}
+        modalTitle={"Ventas vs Cobranza"}
         renderModalContent={(rowData) => <RowDetailContent rowData={rowData} />}
+        footerSlot={cobranzaFooter} 
       />
     </>
   )

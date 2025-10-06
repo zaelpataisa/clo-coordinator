@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import IconSelect from './Icons'; 
 
 interface RowDetailModalProps {
   open: boolean;
@@ -16,39 +14,37 @@ export const RowDetailModal: React.FC<RowDetailModalProps> = ({
   children, 
   title = "Detalles de la Fila",
 }) => {
-  const modalStyle = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '80dvw',
-    height: 'auto',
-    // maxHeight: '90vh',
-    bgcolor: 'var(--colors-07)',
-    // border: '2px solid #000',
-    boxShadow: 'var(--bs)',
-    p: 4,
-    overflowY: 'auto',
-    borderRadius: '1rem', 
-  };
-
+  if (!open) {
+    return null;
+  }
+  
   return (
-    <Modal
-      open={open}
-      onClose={onClose}
-      aria-labelledby="modal-title"
-      aria-describedby="modal-description"
+    <div 
+      className="fixed inset-0 z-50 bg-black/50 overflow-y-auto"
+      onClick={onClose}
     >
-      <Box sx={modalStyle}>
-        <Typography id="modal-title" variant="h6" component="h2" sx={{ mb: 2, borderBottom: '1px solid var(--colors-03)', pb: 1 }}>
-          <div className='font-bold font-rFont text-[var(--colors-03)] text-[1.5rem]'>
+      <div 
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80vw] h-auto max-h-[90vh] bg-[var(--colors-07)] shadow-xl rounded-xl p-6 overflow-y-auto"
+        onClick={(e) => e.stopPropagation()} 
+      >
+        <div className="flex flex-row justify-between items-center border-b border-[var(--colors-03_50)] p-2 pb-4">
+          <h2 id="modal-title" className='font-bold font-rFont text-[var(--colors-03)] text-2xl leading-none'>
             {title}
-          </div>
-        </Typography>
-        <Box id="modal-description" sx={{ mt: 2 }}>
+          </h2>
+
+          <button
+            aria-label="close"
+            onClick={onClose}
+            className="text-[var(--colors-03)] text-[1.5rem] hover:opacity-80 transition duration-150 cursor-pointer"
+          >
+            <IconSelect iconCode='IoMdClose' />
+          </button>
+        </div>
+
+        <div id="modal-description" className="py-4">
           {children} 
-        </Box>
-      </Box>
-    </Modal>
+        </div>
+      </div>
+    </div>
   );
 };

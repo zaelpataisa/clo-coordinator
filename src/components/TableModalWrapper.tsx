@@ -50,18 +50,18 @@ export const TableModalWrapper = <T extends object>({
 
   return (
     <>
-      <Tables 
-        {...props} 
-        onRowClick={handleRowClick}
-        footerSlot={footerSlot} 
-      />
-      <RowDetailModal
-        open={isModalOpen}
-        onClose={handleClose}
-        title={modalTitle}
-      >
-        {modalContent}
-      </RowDetailModal>
+        <Tables 
+          {...props} 
+          onRowClick={handleRowClick}
+          footerSlot={footerSlot} 
+        />
+        <RowDetailModal
+          open={isModalOpen}
+          onClose={handleClose}
+          title={modalTitle}
+        >
+          {modalContent}
+        </RowDetailModal>
     </>
   );
 };

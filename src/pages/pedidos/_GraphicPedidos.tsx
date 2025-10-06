@@ -13,7 +13,7 @@ interface ApiResponse {
 }
 
 const ComponenteGraphicPedidos = () => {
-  const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_GRAPHIC_VENTA;
+  const url = import.meta.env.PUBLIC_HOST_API+import.meta.env.PUBLIC_COORD_GRAPHIC_PDDS_DOCS;
   const { data, isLoading, error } = useFetch<ApiResponse>(url);
 
   if (isLoading) {
@@ -30,10 +30,10 @@ const ComponenteGraphicPedidos = () => {
     <>
       {data && (
         <ChartLine_01
-          label={'Pedidos'}
+          label={'Cantidad'}
           chartData={data}
           yAxisConfig={{opacity: 1, disableLine: false}}
-          lineDesign={{area: true}}
+          lineDesign={{area: false}}
         />
       )}
     </>

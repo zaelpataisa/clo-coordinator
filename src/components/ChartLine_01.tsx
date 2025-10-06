@@ -77,18 +77,19 @@ const ChartLine_01 = ({ label, chartData, yAxisConfig, lineDesign }: DataProps) 
     return (
         <>
             <LineChart
+                height={350}
                 xAxis={[{
-                        id: chartData.id,
-                        data: chartData.xAxisData,
-                        scaleType: 'point',
-                        tickLabelStyle: {
-                            angle: -90,
-                            textAnchor: 'end',
-                            fontSize: 10,
-                            fontWeight: 'bold',
-                            fill: 'var(--colors-06)'
-                        },
-                        height: 50
+                    id: chartData.id,
+                    data: chartData.xAxisData,
+                    scaleType: 'point',
+                    tickLabelStyle: {
+                        angle: -90,
+                        textAnchor: 'end',
+                        fontSize: 10,
+                        fontWeight: 'bold',
+                        fill: 'var(--colors-06)'
+                    },
+                    height: 50
                 }]}
                 series={
                     chartData.seriesData.filter(s => !s.hidden)

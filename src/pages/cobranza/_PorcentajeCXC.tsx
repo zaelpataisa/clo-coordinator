@@ -50,25 +50,29 @@ const ComponentePorcentajeCXC = () => {
   return (
     <>
       <div className="flex flex-row w-full h-full">
-        <div className="flex flex-col w-1/2 items-center justify-start space-y-4">
-          <p className="font-rFont font-bold text-[var(--colors-03)] text-[1rem]">General</p>
-          {data.query && (
+        <div className="flex flex-col w-1/2 h-full items-center justify-start space-y-4">
+          <p className="font-rFont font-bold text-[var(--colors-03)] text-[1rem]">
+            General
+          </p>
+          <div className="flex-grow w-full"> 
             <ChartBar_02 
               chartData={data.query}
               label={"Cifra"}
               yAxisConfig={{opacity: 0, disableLine: true, disableTicks: true}}
             />
-          )}
+          </div>
         </div>
-        <div className="flex flex-col w-1/2 items-center justify-start space-y-4">
-          <p className="font-rFont font-bold text-[var(--colors-03)] text-[1rem]">Por día</p>
-          {data.query2 && (
+        <div className="flex flex-col w-1/2 h-full items-center justify-start space-y-4">
+          <p className="font-rFont font-bold text-[var(--colors-03)] text-[1rem]">
+            Por día
+          </p>
+          <div className="flex-grow w-full"> 
             <ChartBar_02 
               chartData={data.query2}
               label={"Cifra"}
               yAxisConfig={{opacity: 0, disableLine: true, disableTicks: true}}
             />
-          )}
+          </div>
         </div>
       </div>
     </>

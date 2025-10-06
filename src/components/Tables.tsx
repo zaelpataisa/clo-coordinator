@@ -69,7 +69,7 @@ export const Tables = <T extends object>({
   const disableRowSelection = onRowClick === undefined;
 
   return (
-    <Paper sx={{ height: 400, width: '100%', display: 'flex' }}>
+    <Paper sx={{ height: 500, width: '100%', display: 'flex' }}>
       <DataGrid
         localeText={esES.components.MuiDataGrid.defaultProps.localeText}
         rows={rows}
@@ -90,7 +90,7 @@ export const Tables = <T extends object>({
             borderColor: 'var(--colors-04)',
           },
           height: '100%',
-          cursor: onRowClick ? 'pointer' : 'default',
+          // cursor: onRowClick ? 'pointer' : 'default',
         }}
       />
     </Paper>

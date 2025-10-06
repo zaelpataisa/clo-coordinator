@@ -1,6 +1,6 @@
 import ChartGauge from "src/components/ChartGauge";
 import { useFetch } from "src/hooks/useFetch";
-import { formatEuropeanNumber } from "src/utils/FormatNumbers";
+import { formatEuropeanNumber } from "src/utils/FormattingFunctions";
 import LoadingCircle from "src/components/LoadingCircle";
 
 interface ApiResponse {

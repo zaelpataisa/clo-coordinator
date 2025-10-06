@@ -11,6 +11,7 @@ interface ApiResponse {
     c_visitas: number;
     c_no_visitas: number;
   }
+  total_clients_newest: number;
 }
 
 const ComponenteCarteraPedidos = () => {
@@ -37,31 +38,49 @@ const ComponenteCarteraPedidos = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-full p-2 w-1/2">
-        <Box>
-          <ChartPie 
-            data_text={data_text}
-            data_values={data_values}
-            data_colors={data_colors}
-          />
-        </Box>
-      </div>
-      <div className="flex flex-row items-center justify-center h-full w-1/2">
-        <div className="flex flex-col justify-center items-center w-full h-full">
-          <p className="font-rFont font-bold text-[1rem] text-[var(--colors-03)]">
-            Total de clientes
-          </p>
-          <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
-            {data.c_total}
-          </p>
+      <div className="flex flex-col xl:flex-row justify-center items-center w-full h-full">
+        <div className="flex flex-col items-center justify-center h-full p-2 xl:w-1/2">
+          <Box>
+            <ChartPie 
+              data_text={data_text}
+              data_values={data_values}
+              data_colors={data_colors}
+            />
+          </Box>
         </div>
-        <div className="flex flex-col justify-center items-center w-full h-full">
-          <p className="font-rFont font-bold text-[1rem] text-[var(--colors-03)]">
-            Cantidad de pedidos este mes
-          </p>
-          <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
-            {data.p_cantidad}
-          </p>
+        <div className="flex flex-row flex-wrap items-center justify-center h-full w-full xl:w-1/2">
+          <div className="flex flex-col justify-center items-center w-1/2 h-auto">
+            <p className="font-rFont font-bold text-[1rem] text-[var(--colors-03)] text-center">
+              Total de clientes
+            </p>
+            <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
+              {data.c_total}
+            </p>
+          </div>
+          <div className="flex flex-col justify-center items-center w-1/2 h-auto">
+            <p className="font-rFont font-bold text-[1rem] text-[var(--colors-03)] text-center">
+              Pedidos este mes
+            </p>
+            <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
+              {data.p_cantidad}
+            </p>
+          </div>
+          <div className="flex flex-col justify-center items-center w-1/2 h-auto">
+            <p className="font-rFont font-bold text-[1rem] text-[var(--colors-03)] text-center">
+              Clientes nuevos
+            </p>
+            <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
+              {data.total_clients_newest}
+            </p>
+          </div>
+          <div className="flex flex-col justify-center items-center w-1/2 h-auto">
+            <p className="font-rFont font-bold text-[1rem] text-[var(--colors-03)] text-center">
+              Clientes visitados
+            </p>
+            <p className="font-rFont text-[2rem] text-[var(--colors-05)]">
+              {data.data_pie.c_visitas}
+            </p>
+          </div>
         </div>
       </div>
     </>

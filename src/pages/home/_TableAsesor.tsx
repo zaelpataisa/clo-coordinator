@@ -6,6 +6,16 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { TableModalWrapper } from "src/components/TableModalWrapper";
 import type { GridColDef } from "@mui/x-data-grid";
+import CustomTableFooter from "src/components/CustomTableFooter";
+
+interface TotalesData {
+  [key: string]: number;
+  fact_meta: number;
+  fact: number;
+  fact_rest: number;
+  meta_percent: number;
+  cobr: number;
+}
 
 type RowType = {
   id: number;
@@ -14,10 +24,7 @@ type RowType = {
   fact: number;
   fact_rest: number;
   fact_percent: number;
-  // meta_cobr: number;
-  // cobr: number;
   cobr_rest: number;
-  cobr_percent: number;
 }[];
 
 type SingleRowType = RowType[number];
@@ -30,6 +37,7 @@ interface ApiResponse {
   }[];
   rows: SingleRowType[];
   pageSizeOptions: number[];
+  totales: TotalesData;
 }
 
 const RowDetailContent: React.FC<{ rowData: SingleRowType }> = ({ rowData }) => {
@@ -68,6 +76,14 @@ const ComponenteTableAsesor = () => {
   if(!data){
     return <p>Error al obtener los datos: {error}</p>;
   }
+
+  const cobranzaFooter = (
+    <CustomTableFooter
+      totales={data.totales} 
+      columns={data.columns as GridColDef<any>[]} 
+      totalsPrefix="total_" 
+    />
+  );
   
   return (
     <>
@@ -77,12 +93,13 @@ const ComponenteTableAsesor = () => {
         initialState={{
           pagination: {
             paginationModel:
-            { page: 0, pageSize: 10 }
+            { page: 0, pageSize: data.rows.length }
           }
         }}
         pageSizeOptions={data.pageSizeOptions}
         modalTitle={"Detalles por vendedor"}
         renderModalContent={(rowData) => <RowDetailContent rowData={rowData} />}
+        footerSlot={cobranzaFooter} 
       />
     </>
   )

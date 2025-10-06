@@ -140,6 +140,7 @@ const ChartBar_03 = ({ dataset, yDataKey, xDataKey, label, selectedColor, textSy
     return (
         <Box className="h-full w-full overflow-auto">
             <BarChart
+                height={400}
                 layout="horizontal"
                 dataset={dataset}
                 series={[

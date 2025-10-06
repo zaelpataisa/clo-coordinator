@@ -1,18 +1,14 @@
 import { useFetch } from "src/hooks/useFetch";
-import ChartBar_02 from "src/components/ChartBar_02";
+import ChartBar_03 from "src/components/ChartBar_03";
 import LoadingCircle from "src/components/LoadingCircle";
 
 interface ApiResponse {
   id: string;
-  xAxisData: { 
-    data: string[] 
+  data: {
+    yDataKey: string;
+    xDataKey: number;
   }[];
-  seriesData: {
-    data: number[];
-    label?: string;
-    color?: string;
-    hidden?: boolean;
-  }[];
+  color: string;
 }
 
 const ComponenteMetasCobr = () => {
@@ -28,16 +24,25 @@ const ComponenteMetasCobr = () => {
   if (error) {
     return <p>Error al obtener los datos: {error}</p>;
   }
+  if (!data) {
+    return <p>Error al obtener los datos: {error}</p>;
+  }
 
   return (
     <>
-      {data && (
-        <ChartBar_02
-          chartData={data}
-          label={"Cantidad"}
-          yAxisConfig={{opacity: 1, disableLine: false, disableTicks: false}}
-        />
-      )}
+      <ChartBar_03
+        dataset={data.data}
+        yDataKey="yDataKey"
+        xDataKey="xDataKey"
+        label="Cantidad"
+        selectedColor={data.color}
+        textSymbol=""
+        yAxisConfig={{
+          opacityTickLabel: 1,
+          disableLine: false,
+          disableTicks: false,
+        }}
+      />
     </>
   );
 }
