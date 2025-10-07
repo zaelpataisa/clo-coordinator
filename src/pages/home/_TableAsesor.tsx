@@ -87,7 +87,7 @@ const ComponenteTableAsesor = () => {
   
   return (
     <>
-      <TableModalWrapper<SingleRowType> 
+      <Tables<SingleRowType> 
         rows={data.rows as SingleRowType[]}
         columns={data.columns as GridColDef<RowType[number]>[]}
         initialState={{
@@ -97,8 +97,8 @@ const ComponenteTableAsesor = () => {
           }
         }}
         pageSizeOptions={data.pageSizeOptions}
-        modalTitle={"Detalles por vendedor"}
-        renderModalContent={(rowData) => <RowDetailContent rowData={rowData} />}
+        // modalTitle={"Detalles por vendedor"}
+        // renderModalContent={(rowData) => <RowDetailContent rowData={rowData} />}
         footerSlot={cobranzaFooter} 
       />
     </>

@@ -1,10 +1,9 @@
 import { useFetch } from "src/hooks/useFetch";
 import LoadingCircle from "src/components/LoadingCircle";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import { TableModalWrapper } from "src/components/TableModalWrapper";
 import type { GridColDef } from '@mui/x-data-grid';
 import CustomTableFooter from "src/components/CustomTableFooter"; 
+import { TableDaysDetails } from "../_modals/m_tabledaysdetail";
 
 interface TotalesData {
   [key: string]: number;
@@ -15,8 +14,9 @@ interface TotalesData {
 type RowType = {
   id: number;
   days: string;
-  fact: number;
+  vent: number;
   cobr: number;
+  fecha: string[];
 }[];
 
 type SingleRowType = RowType[number];
@@ -49,24 +49,6 @@ const ComponenteTableDaysDetail = () => {
     return <p>Error al obtener los datos: {error}</p>;
   }
 
-  const RowDetailContent: React.FC<{ rowData: SingleRowType }> = ({ rowData }) => {
-  return (
-    <Box>
-      {Object.entries(rowData).map(([key, value]) => {
-        if (key === 'id') return null; 
-
-        return (
-          <Typography key={key} variant="body2" sx={{ my: 0.5 }}>
-            <span style={{ fontWeight: 'bold', textTransform: 'capitalize' }}>
-                {key.replace(/_/g, ' ')}:
-            </span>{' '}
-            {String(value)}
-          </Typography>
-        );
-      })}
-    </Box>
-  );
-};
   const cobranzaFooter = (
     <CustomTableFooter 
       totales={data.totales} 
@@ -88,7 +70,7 @@ const ComponenteTableDaysDetail = () => {
         }}
         pageSizeOptions={data.pageSizeOptions}
         modalTitle={"Ventas vs Cobranza"}
-        renderModalContent={(rowData) => <RowDetailContent rowData={rowData} />}
+        renderModalContent={(rowData) => <TableDaysDetails rowData={rowData} />}
         footerSlot={cobranzaFooter} 
       />
     </>

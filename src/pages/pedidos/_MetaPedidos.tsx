@@ -33,19 +33,26 @@ const ComponenteMetaPedidos = () => {
     <>
       <div className="flex flex-col justify-center items-center space-y-6 w-[100%]">
         <div className="flex justify-center items-center w-[100%]">
-            {data && (
-            <ChartGauge
-              chartData={{
-                minValue:  formatEuropeanNumber(data.minValue),
-                value:  formatEuropeanNumber(data.value),
-                maxValue:  formatEuropeanNumber(data.maxValue),
-                restante:  formatEuropeanNumber(data.restante),
-                porcentaje:  formatEuropeanNumber(data.porcentaje),
-                porcentajeRestante:  formatEuropeanNumber(data.porcentajeRestante),
-                colors: 'var(--colors-03)'
-              }}
-            />
-            )}
+          {data && (
+            formatEuropeanNumber(data.maxValue) > 0 ? (
+              <ChartGauge
+                chartData={{
+                  minValue:  formatEuropeanNumber(data.minValue),
+                  value:  formatEuropeanNumber(data.value),
+                  maxValue:  formatEuropeanNumber(data.maxValue),
+                  restante:  formatEuropeanNumber(data.restante),
+                  // @ts-ignore 
+                  porcentaje:  data.porcentaje,
+                  porcentajeRestante:  formatEuropeanNumber(data.porcentajeRestante),
+                  colors: 'var(--colors-03)'
+                }}
+              />
+            ) : (
+              <p className="font-rFont font-bold text-[var(--colors-05)] text-[1.5rem] my-10">
+                Actualmente no se cuenta con una meta...
+              </p>
+            )
+          )}
         </div>
         <div className="flex justify-center items-center w-[100%]">
           <div className="flex flex-col justify-center items-center w-1/2 space-y-2">

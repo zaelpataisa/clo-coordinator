@@ -8,7 +8,16 @@ export const useFetch = <T,>(url: string) => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(url + getLocalStorageData('authToken_vendedor'));
+      const splittedUrl = url.split("/");
+      const userLoginToken = getLocalStorageData('authToken_vendedor');
+
+      let response;
+      if(splittedUrl[splittedUrl.length - 2] != userLoginToken){
+        response = await fetch(url + userLoginToken);
+      } else {
+        response = await fetch(url);
+      }
+
       if (!response.ok) {
         throw new Error(`Error HTTP! ${response.status}`);
       }
